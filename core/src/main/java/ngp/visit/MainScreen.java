@@ -3,21 +3,20 @@ package ngp.visit;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
-import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.scenes.scene2d.Event;
+import com.badlogic.gdx.scenes.scene2d.EventListener;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Button;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
-import com.badlogic.gdx.scenes.scene2d.ui.ImageButton;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 import com.badlogic.gdx.utils.Align;
 import com.badlogic.gdx.utils.Scaling;
-import com.badlogic.gdx.utils.viewport.ScreenViewport;
 
 public class MainScreen implements Screen {
     private final TourApp app;
@@ -33,7 +32,7 @@ public class MainScreen implements Screen {
     public MainScreen(TourApp app){
         this.app = app;
         stage = new Stage();
-        locData1 = new LocationData("Zhassybay",new Texture("zhesybay.png"),"",new Vector2(300,600));
+        locData1 = new LocationData("Zhassybay",new Texture("images/zhesybay.png"),"",new Vector2(300,600));
         initUI();
         Gdx.input.setInputProcessor(stage);
     }
@@ -41,7 +40,7 @@ public class MainScreen implements Screen {
     private void initUI() {
         title = new TextButton("Visit Bayanaul!", Style.styleTextLarge);
         locBn1 = new Button(Style.stylePinHL);
-        locBn2 = new Button(Style.stylePin);
+        locBn2 = new Button(Style.stylePinHL);
         stage.addListener(new ClickListener(){
             @Override
             public void clicked(InputEvent event, float x, float y) {
@@ -54,7 +53,14 @@ public class MainScreen implements Screen {
                 app.setScreen(new PlaceScreen(app, locData1));
             }
         });
-        mapTex = new Texture("map.PNG");
+        locBn2.addListener(new ClickListener(){
+            @Override
+            public void clicked(InputEvent event, float x, float y) {
+                app.setScreen(new PlaceScreen(app, locData1));
+            }
+        });
+        locBn1.addListener(event -> false);
+        mapTex = new Texture("images/map.PNG");
         int w = mapTex.getWidth();
         int h = mapTex.getHeight();
         int sW = Gdx.graphics.getWidth();
@@ -79,7 +85,7 @@ public class MainScreen implements Screen {
 
     @Override
     public void render(float delta) {
-        Gdx.gl.glClearColor(0.35f, 0.35f, 0.35f, 1f);
+        Gdx.gl.glClearColor(Style.back.r, Style.back.g, Style.back.b, Style.back.a);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
         stage.act();
         stage.draw();

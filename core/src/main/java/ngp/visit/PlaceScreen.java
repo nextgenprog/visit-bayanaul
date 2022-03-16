@@ -27,6 +27,7 @@ public class PlaceScreen implements Screen {
         title = new TextButton(locData.name, Style.styleTextLarge);
         banner = new Image(locData.banner);
 		backBn = new TextButton(locData.name, Style.styleTextLarge);
+		backBn.setText("back");
         stage.addActor(title);
         stage.addActor(banner);
         stage.addActor(backBn);
@@ -34,13 +35,8 @@ public class PlaceScreen implements Screen {
     }
 
     @Override
-    public void show() {
-
-    }
-
-    @Override
     public void render(float delta) {
-        Gdx.gl.glClearColor(0.15f, 0.15f, 0.15f, 1f);
+        Gdx.gl.glClearColor(Style.back.r, Style.back.g, Style.back.b, Style.back.a);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
         stage.act();
         stage.draw();
@@ -49,27 +45,28 @@ public class PlaceScreen implements Screen {
     @Override
     public void resize(int width, int height) {
         title.setBounds(0.1f*width,height-0.5f*width,0.8f*width,0.4f*width);
-        backBn.setBounds(0.1f*width,height-0.5f*width,0.8f*width,0.4f*width);
+        backBn.setBounds(0.1f*width,height-1.5f*width,0.8f*width,0.4f*width);
         banner.setPosition(0.05f*width,0.05f*width);
-    }
-
-    @Override
-    public void pause() {
-
-    }
-
-    @Override
-    public void resume() {
-
-    }
-
-    @Override
-    public void hide() {
-
     }
 
     @Override
     public void dispose() {
         stage.dispose();
+    }
+
+    @Override
+    public void pause() {
+    }
+
+    @Override
+    public void resume() {
+    }
+
+    @Override
+    public void show() {
+    }
+
+    @Override
+    public void hide() {
     }
 }
