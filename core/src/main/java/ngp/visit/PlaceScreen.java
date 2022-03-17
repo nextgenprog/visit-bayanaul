@@ -3,9 +3,11 @@ package ngp.visit;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
+import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
+import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 
 public class PlaceScreen implements Screen {
     private final TourApp app;
@@ -26,8 +28,13 @@ public class PlaceScreen implements Screen {
     private void initUI() {
         title = new TextButton(locData.name, Style.styleTextLarge);
         banner = new Image(locData.banner);
-		backBn = new TextButton(locData.name, Style.styleTextLarge);
-		backBn.setText("back");
+		backBn = new TextButton("Go back", Style.styleTextLarge);
+		backBn.addListener(new ClickListener(){
+            @Override
+            public void clicked(InputEvent event, float x, float y) {
+                app.setScreen(new MainScreen(app));
+            }
+        });
         stage.addActor(title);
         stage.addActor(banner);
         stage.addActor(backBn);

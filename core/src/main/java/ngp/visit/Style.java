@@ -7,6 +7,7 @@ import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.NinePatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.scenes.scene2d.ui.Button;
+import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.Drawable;
 import com.badlogic.gdx.scenes.scene2d.utils.NinePatchDrawable;
@@ -15,6 +16,7 @@ import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 public class Style {
     static BitmapFont font, fontLarge;
     static TextButton.TextButtonStyle styleText, styleTextLarge;
+    static Label.LabelStyle styleLabel, styleLabelLarge;
     static Button.ButtonStyle stylePin, stylePinHL;
     // background colour
     static Color back = new Color(0.75f,0.75f,0.75f,1f);
@@ -49,6 +51,8 @@ public class Style {
         Drawable buttonDrawable = new NinePatchDrawable(new NinePatch(t1, t2, t3, t4, t5, t6, t7, t8, t9));
         styleText = new TextButton.TextButtonStyle(buttonDrawable, buttonDrawable, buttonDrawable, font);
         styleTextLarge = new TextButton.TextButtonStyle(buttonDrawable, buttonDrawable, buttonDrawable, fontLarge);
+        styleLabel = new Label.LabelStyle(font, new Color(0.15f, 0.18f, 0.25f,0.5f));
+        styleLabelLarge = new Label.LabelStyle(fontLarge, new Color(0.15f, 0.18f, 0.25f,0.5f));
         TextureRegionDrawable tPin = new TextureRegionDrawable(assets.get("images/pin.png",Texture.class));
         TextureRegionDrawable tPinHL = new TextureRegionDrawable(assets.get("images/pinHL.png",Texture.class));
         TextureRegionDrawable tPinOver = new TextureRegionDrawable(assets.get("images/pinOver.png",Texture.class));
