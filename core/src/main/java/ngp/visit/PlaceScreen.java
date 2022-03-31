@@ -13,7 +13,7 @@ public class PlaceScreen implements Screen {
     private final TourApp app;
     private final Stage stage;
     private final LocationData locData;
-    private TextButton title, backBn;
+    private TextButton title, backBn, navBn;
     private Image banner;
 
     public PlaceScreen(TourApp app, LocationData locData){
@@ -28,16 +28,26 @@ public class PlaceScreen implements Screen {
     private void initUI() {
         title = new TextButton(locData.name, Style.styleTextLarge);
         banner = new Image(locData.banner);
-		backBn = new TextButton("Go back", Style.styleTextLarge);
-		backBn.addListener(new ClickListener(){
+        backBn = new TextButton("Go back", Style.styleTextLarge);
+        backBn.addListener(new ClickListener(){
             @Override
             public void clicked(InputEvent event, float x, float y) {
                 app.setScreen(new MainScreen(app));
             }
         });
+        navBn = new TextButton("See on map", Style.styleTextLarge);
+        navBn.addListener(new ClickListener(){
+            @Override
+            public void clicked(InputEvent event, float x, float y) {
+                super.clicked(event, x, y);
+                Gdx.net.openURI(locData.url);
+                event.handle();
+            }
+        });
         stage.addActor(title);
         stage.addActor(banner);
         stage.addActor(backBn);
+        stage.addActor(navBn);
         resize(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
     }
 
@@ -51,8 +61,9 @@ public class PlaceScreen implements Screen {
 
     @Override
     public void resize(int width, int height) {
-        title.setBounds(0.1f*width,height-0.5f*width,0.8f*width,0.4f*width);
-        backBn.setBounds(0.1f*width,height-1.5f*width,0.8f*width,0.4f*width);
+        title.setBounds(0.1f*width,height-0.3f*width,0.8f*width,0.2f*width);
+        backBn.setBounds(0.1f*width,0.1f*width,0.8f*width,0.2f*width);
+        navBn.setBounds(0.1f*width,0.4f*width,0.8f*width,0.2f*width);
         banner.setPosition(0.05f*width,0.05f*width);
     }
 

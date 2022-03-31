@@ -8,11 +8,13 @@ public class LocationData {
     protected Texture banner;
     protected String content;
     protected Vector2 coordinates;
+    protected String url;
 
-    public LocationData(String name, Texture banner, String content, Vector2 coordinates){
+    public LocationData(String name, Texture banner, String content, Vector2 coordinates, String url){
         this.name = name;
         this.banner = banner;
         this.content = content;
         this.coordinates = coordinates;
+        this.url = url;
     }
 }
