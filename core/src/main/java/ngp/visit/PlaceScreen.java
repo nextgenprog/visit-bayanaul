@@ -61,10 +61,10 @@ public class PlaceScreen implements Screen {
 
     @Override
     public void resize(int width, int height) {
-        title.setBounds(0.1f*width,height-0.3f*width,0.8f*width,0.2f*width);
-        backBn.setBounds(0.1f*width,0.1f*width,0.8f*width,0.2f*width);
-        navBn.setBounds(0.1f*width,0.4f*width,0.8f*width,0.2f*width);
-        banner.setPosition(0.05f*width,0.05f*width);
+        title.setBounds(0.1f*width,height-0.1f*width-128,0.8f*width,128);
+        backBn.setBounds(0.1f*width,0.1f*width,0.8f*width,128);
+        navBn.setBounds(0.1f*width,0.2f*width+128,0.8f*width,128);
+        banner.setPosition(0.05f*width,height-640);
     }
 
     @Override
