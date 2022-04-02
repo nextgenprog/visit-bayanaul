@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <folder>
-    <location/>
+    <location
+        name="Nayzatas"
+        mapUrl="https://www.google.co.uk/maps/place/Nayzaytas/@50.8269876,75.598385,21z/data=!4m5!3m4!1s0x425918ddae2ebe67:0x57639d6a6b2df777!8m2!3d50.8259679!4d75.6012979?hl=en"
+        image="images/location_images/zhesybay.png"
+        
+    />
     <!--<location
         name="Bayanaul Village"
         mapUrl="https://www.google.com/maps/place/Bayanaul+140000,+Kazakhstan/@50.7931301,75.6976247,15z/data=!3m1!4b1!4m5!3m4!1s0x4259201f0a2063e7:0x903a36d62022c207!8m2!3d50.7925659!4d75.702517"
