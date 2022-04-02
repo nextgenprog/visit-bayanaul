@@ -6,18 +6,19 @@
         image="images/location_images/zhesybay.png"
         content="this is nayzatas"
         icon="pin"
+        x="1500"
+        y="1000"
+    />
+    <location
+        name="Bayanaul Village"
+        mapUrl="https://www.google.com/maps/place/Bayanaul+140000,+Kazakhstan/@50.7931301,75.6976247,15z/data=!3m1!4b1!4m5!3m4!1s0x4259201f0a2063e7:0x903a36d62022c207!8m2!3d50.7925659!4d75.702517"
+        image="images/location_images/bayanaul_village.jpg"
+        content="This is Bayanaul Village with population of about 9000 wonderful people."
+        icon="home"
         x="800"
         y="800"
     />
     <!--<location
-        name="Bayanaul Village"
-        mapUrl="https://www.google.com/maps/place/Bayanaul+140000,+Kazakhstan/@50.7931301,75.6976247,15z/data=!3m1!4b1!4m5!3m4!1s0x4259201f0a2063e7:0x903a36d62022c207!8m2!3d50.7925659!4d75.702517"
-        image="images/zhesybay.png"
-        content=""
-        icon="home"
-        x="800"
-        y="800"/>
-    <location
         name="Zhassybay"
         mapUrl="https://www.google.com/maps/place/Lake+Jasybay/@50.8178136,75.5780303,15z/data=!3m1!4b1!4m5!3m4!1s0x425918f1d3d46675:0xf2eff2d7865e5216!8m2!3d50.8186188!4d75.5907858"
         image="images/zhesybay.png"
