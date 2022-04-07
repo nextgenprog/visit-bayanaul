@@ -9,5 +9,14 @@
         x="800"
         y="800"
     />
-    
+    <location
+        name="Lake Zhassybye"
+        mapUrl="https://goo.gl/maps/XzgQvYNc8BEGMRBW9"
+        image="images/location_images/Zhasybai.jpeg"
+        content="Zhasybai is the most beautiful lake of Bayanaul National Park."
+        icon="swim"
+        x="1200"
+        y="1000"
+     />
+                  
 </folder>
