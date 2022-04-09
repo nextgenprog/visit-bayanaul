@@ -17,5 +17,14 @@
         icon="swim"
         x="1200"
         y="1000"
+    />
+    <location
+        name="Toraigyr"
+        mapUrl="https://goo.gl/maps/YCLuAXqfm8LkAzrVA"
+        image="images/location_images/toraigyr.jpg"
+        content="At Lake Toraigyr rises the Peak of the Brave. the rock bears this name recently - from the 1950s, when the mass development of tourism in the Bayanaul mountains began."
+        icon="mount.png"
+        x="1400"
+        y="1000"
      />            
 </folder>
