@@ -17,5 +17,14 @@
         icon="swim"
         x="1200"
         y="1000"
-     />            
+     />    
+    <location
+        name="Kempirtas Rock"
+        mapUrl="https://goo.gl/maps/NNovPBRxqFo6vTWy9"
+        image="images/location_images/kempirtas.jpg"
+        content="Another miracle of nature is the rock Kempirtas or Baba Yaga.  On the one hand you will see an old woman, and on the other the appearance of a young girl."
+        icon="mount.png"
+        x="1350"
+        y="1250"      
+    
 </folder>
