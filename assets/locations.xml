@@ -18,4 +18,13 @@
         x="1200"
         y="1000"
      />            
+    <location
+        name="Naizatas"
+        mapUrl="https://goo.gl/maps/ipigT1CXaa2YTSJK9"
+        image="images/location_images/Naizatas.jpeg"
+        content="Mount Naizatas with a height of 568 meters above sea level is located in the Bayanaul National Natural Park in the Bayanul district of the Pavlodar region."        
+        icon="mount"     
+         x="1400"
+         y="1200" 
+       />       
 </folder>
