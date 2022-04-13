@@ -39,5 +39,15 @@
         x="1350"
         y="1250"    
      /> 
-  
+       
+      <location
+       name="Akbet Mountain"
+       mapUrl="https://goo.gl/maps/7mg5QVLQPopXpuei7"
+       image="images/location_images/akbet.jpg"      
+       content="Akbet is the highest mountain peak in Pavlodar region."
+       icon="mount"   
+       x="1300"
+       y="1100"  
+      />
+
 </folder>
