@@ -9,6 +9,7 @@
         x="800"
         y="800"
     />
+  
     <location
         name="Lake Zhassybye"
         mapUrl="https://goo.gl/maps/XzgQvYNc8BEGMRBW9"
@@ -17,7 +18,28 @@
         icon="swim"
         x="1200"
         y="1000"
-     />         
+    />
+  
+    <location
+        name="Toraigyr"
+        mapUrl="https://goo.gl/maps/YCLuAXqfm8LkAzrVA"
+        image="images/location_images/toraigyr.jpg"
+        content="At Lake Toraigyr rises the Peak of the Brave. the rock bears this name recently - from the 1950s, when the mass development of tourism in the Bayanaul mountains began."
+        icon="mount.png"
+        x="1400"
+        y="1000"
+    />   
+  
+    <location
+        name="Kempirtas Rock"
+        mapUrl="https://goo.gl/maps/NNovPBRxqFo6vTWy9"
+        image="images/location_images/kempirtas.jpg"
+        content="Another miracle of nature is the rock Kempirtas or Baba Yaga.  On the one hand you will see an old woman, and on the other the appearance of a young girl."
+        icon="mount.png"
+        x="1350"
+        y="1250"    
+     /> 
+       
       <location
        name="Akbet Mountain"
        mapUrl="https://goo.gl/maps/7mg5QVLQPopXpuei7"
@@ -27,4 +49,5 @@
        x="1300"
        y="1100"  
       />
+
 </folder>
