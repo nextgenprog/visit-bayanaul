@@ -6,6 +6,7 @@ import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
+import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 
@@ -13,7 +14,8 @@ public class PlaceScreen implements Screen {
     private final TourApp app;
     private final Stage stage;
     private final LocationData locData;
-    private TextButton title, backBn, navBn, text;
+    private TextButton title, backBn, navBn;
+    private Label text;
     private Image banner;
 
     public PlaceScreen(TourApp app, LocationData locData){
@@ -27,7 +29,8 @@ public class PlaceScreen implements Screen {
 
     private void initUI() {
         title = new TextButton(locData.name, Style.styleTextLarge);
-        text = new TextButton(locData.content, Style.styleTextLarge);
+        text = new Label(locData.content, Style.styleLabelLarge);
+        text.setWrap(true);
         banner = new Image(locData.banner);
         backBn = new TextButton("Go back", Style.styleTextLarge);
         backBn.addListener(new ClickListener(){
@@ -67,7 +70,7 @@ public class PlaceScreen implements Screen {
         text.setBounds(0.1f*width,height-1.0f*width-128,0.8f*width,128);
         backBn.setBounds(0.1f*width,0.1f*width,0.8f*width,128);
         navBn.setBounds(0.1f*width,0.2f*width+128,0.8f*width,128);
-        banner.setPosition(0.05f*width,height-640);
+        banner.setPosition(0.05f*width,height-800);
     }
 
     @Override
