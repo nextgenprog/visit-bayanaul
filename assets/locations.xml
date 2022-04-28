@@ -1,72 +1,72 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <folder>
     <location
-        name="Bayanaul Village"
         mapUrl="https://www.google.com/maps/place/Bayanaul+140000,+Kazakhstan/@50.7931301,75.6976247,15z/data=!3m1!4b1!4m5!3m4!1s0x4259201f0a2063e7:0x903a36d62022c207!8m2!3d50.7925659!4d75.702517"
-        image="images/location_images/bayanaul_village.jpg"
-        content="This is Bayanaul Village with population of about 9000 wonderful people."
+        images="images/locations/bayanaul"
         photo-credit="Name Surname (2022)"
         icon="home"
         x="800"
-        y="800"
-    />
+        y="800">
+        <text language="en" name="Bayanaul Village">This is Bayanaul Village with population of about 9000 wonderful people.</text>
+        <text language="kz" name="(in Kazakh) Bayanaul">(in Kazakh) This is Bayanaul Village with population of about 9000 wonderful people.</text>
+        <text language="ru" name="(in Russian) Bayanaul">(in Russian) This is Bayanaul Village with population of about 9000 wonderful people.</text>
+    </location>
     <location
-        name="Lake Zhassybye"
         mapUrl="https://goo.gl/maps/XzgQvYNc8BEGMRBW9"
-        image="images/location_images/Zhasybai.jpeg"
-        content="Zhasybai is the most beautiful lake of Bayanaul National Park."
+        images="images/locations/zhassybye"
         photo-credit="Name Surname (2022)"
         icon="swim"
-        x="200"
-        y="1000"
-    />
+        x="250"
+        y="980">
+        <text language="en" name="Lake Zhassybye">Zhasybai is the most beautiful lake of Bayanaul National Park.</text>
+        <text language="kz" name="(in Kazakh) Lake Zhassybye">(in Kazakh) Zhasybai is the most beautiful lake of Bayanaul National Park.</text>
+        <text language="ru" name="(in Russian) Lake Zhassybye">(in Russian) Zhasybai is the most beautiful lake of Bayanaul National Park.</text>
+    </location>
 
     <location
         name="Toraigyr"
         mapUrl="https://goo.gl/maps/YCLuAXqfm8LkAzrVA"
-        image="images/location_images/toraigyr.jpg"
+        images="images/locations/toraigyr"
         content="At Lake Toraigyr rises the Peak of the Brave. the rock bears this name recently - from the 1950s, when the mass development of tourism in the Bayanaul mountains began."
         photo-credit="Name Surname (2022)"
-        icon="mount.png"
+        icon="mount"
         x="1400"
-        y="1000"
-    />
+        y="1000">
+        <text language="en" name="Lake Toraigyr">At Lake Toraigyr rises the Peak of the Brave. the rock bears this name recently - from the 1950s, when the mass development of tourism in the Bayanaul mountains began.</text>
+        <text language="kz" name="(in Kazakh) Lake Toraigyr">(in Kazakh) At Lake Toraigyr rises the Peak of the Brave. the rock bears this name recently - from the 1950s, when the mass development of tourism in the Bayanaul mountains began.</text>
+        <text language="ru" name="(in Russian) Lake Toraigyr">(in Russian) At Lake Toraigyr rises the Peak of the Brave. the rock bears this name recently - from the 1950s, when the mass development of tourism in the Bayanaul mountains began.</text>
+    </location>
 
     <location
         name="Kempirtas Rock"
         mapUrl="https://goo.gl/maps/NNovPBRxqFo6vTWy9"
-        image="images/location_images/kempirtas.jpg"
+        images="images/location_images/kempirtas"
         content="Another miracle of nature is the rock Kempirtas or Baba Yaga.  On the one hand you will see an old woman, and on the other the appearance of a young girl."
         photo-credit="Name Surname (2022)"
-        icon="mount.png"
+        icon="mount"
         x="1350"
-        y="1250"
-     />
-
-      <location
-       name="Peak of the Brave"
-       mapUrl="https://goo.gl/maps/7mg5QVLQPopXpuei7"
-       image="images/location_images/akbet.jpg"
-       content="Akbet is the highest mountain peak in Pavlodar region."
-          photo-credit="Name Surname (2022)"
-       icon="mount"
-       x="550"
-       y="1400"
-      />
+        y="1250">
+        <text language="en" name="Kempirtas Rock">Zhasybai is the most beautiful lake of Bayanaul National Park.</text>
+        <text language="kz" name="(in Kazakh) Kempirtas Rock">(in Kazakh) Zhasybai is the most beautiful lake of Bayanaul National Park.</text>
+        <text language="ru" name="(in Russian) Kempirtas Rock">(in Russian) Zhasybai is the most beautiful lake of Bayanaul National Park.</text>
+    </location>
 
     <location
-        name="place name"
+        name="Peak of the Brave"
         mapUrl="https://goo.gl/maps/7mg5QVLQPopXpuei7"
-        image="images/location_images/akbet.jpg"
+        images="images/locations/brave"
         content="Akbet is the highest mountain peak in Pavlodar region."
         photo-credit="Name Surname (2022)"
-        icon="rock"
+        icon="mount"
         x="550"
-        y="1400"
-    />
+        y="1400">
+        <text language="en" name="Lake Zhassybye">Zhasybai is the most beautiful lake of Bayanaul National Park.</text>
+        <text language="kz" name="(in Kazakh) Lake Zhassybye">(in Kazakh) Zhasybai is the most beautiful lake of Bayanaul National Park.</text>
+        <text language="ru" name="(in Russian) Lake Zhassybye">(in Russian) Zhasybai is the most beautiful lake of Bayanaul National Park.</text>
+    </location>
 
-     />
-    <!--<location
+    />
+    <location
         name="Zhassybay"
         mapUrl="https://www.google.com/maps/place/Lake+Jasybay/@50.8178136,75.5780303,15z/data=!3m1!4b1!4m5!3m4!1s0x425918f1d3d46675:0xf2eff2d7865e5216!8m2!3d50.8186188!4d75.5907858"
         image="images/zhesybay.png"

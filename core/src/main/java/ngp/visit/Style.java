@@ -12,14 +12,26 @@ import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.Drawable;
 import com.badlogic.gdx.scenes.scene2d.utils.NinePatchDrawable;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
+import com.badlogic.gdx.utils.IntMap;
+
+import java.util.HashMap;
 
 public class Style {
     static BitmapFont font, fontLarge;
     static TextButton.TextButtonStyle styleText, styleTextLarge;
     static Label.LabelStyle styleLabel, styleLabelLarge;
     static Button.ButtonStyle stylePin, stylePinHL;
+    static final int ENGLISH = 0;
+    static final int KAZAKH = 1;
+    static final int RUSSIAN = 2;
+    static final HashMap<String, Integer> languages = new HashMap<String, Integer>(){{
+        put("en",ENGLISH);
+        put("kz", KAZAKH);
+        put("ru", RUSSIAN);
+    }};
     // background colour
     static Color back = new Color(0.75f,0.75f,0.75f,1f);
+    static Color strip = new Color(0f,0f,0f,1f);
 
     static void init(AssetManager assets){
         assets.load("font/font_1.fnt",BitmapFont.class);
