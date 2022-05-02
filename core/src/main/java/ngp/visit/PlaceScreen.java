@@ -1,7 +1,6 @@
 package ngp.visit;
 
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Pixmap;
@@ -9,19 +8,23 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.scenes.scene2d.Group;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.scenes.scene2d.ui.Button;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
+import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
+import com.badlogic.gdx.utils.Align;
 import com.badlogic.gdx.utils.Array;
 
 public class PlaceScreen extends NgpScreen {
     private final TourApp app;
     private final Stage stage = new Stage();
     private final LocationData locData;
-    private TextButton title, backBn, navBn;
+    private TextButton title;
     private final Group imageStrip = new Group();
     private Image backdrop;
+    private Button backBn, navBn;
     private final Array<Image> images;
     private Label text;
 
@@ -29,13 +32,30 @@ public class PlaceScreen extends NgpScreen {
         this.app = app;
         this.locData = locData;
         images = new Array<>();
-        FileHandle folder = new FileHandle(locData.imageLoc);
+        for (int i = 0; i < 19; i++){
+            Image img = null;
+            String test = locData.imageLoc.concat(Integer.toString(i+1).concat(".png"));
+            try{img = new Image(new Texture(test));}catch(Exception e){
+                test = locData.imageLoc.concat(Integer.toString(i+1).concat(".jpg"));
+                try{img = new Image(new Texture(test));}catch(Exception f){
+                    test = locData.imageLoc.concat(Integer.toString(i+1).concat(".jpeg"));
+                    try{img = new Image(new Texture(test));}catch(Exception g){
+                        int a = 3;
+                    }
+                }
+            }
+            if (null!=img) {images.add(img);
+            imageStrip.addActor(images.get(i));
+            images.get(i).setPosition(i*850+50,0);}
+        }
+
+        /* FileHandle folder = new FileHandle(locData.imageLoc);
         FileHandle[] imageList = folder.list();
         for (int i = 0; i < imageList.length; i++){
             images.add(new Image(new Texture(imageList[i])));
             imageStrip.addActor(images.get(i));
             images.get(i).setPosition(i*800,0);
-        }
+        } */
         initUI();
         Gdx.input.setInputProcessor(stage);
     }
@@ -49,14 +69,15 @@ public class PlaceScreen extends NgpScreen {
         title = new TextButton(locData.names.get(app.language), Style.styleTextLarge);
         text = new Label(locData.contents.get(app.language), Style.styleLabelLarge);
         text.setWrap(true);
-        backBn = new TextButton("Back", Style.styleTextLarge);
+        text.setAlignment(Align.topLeft);
+        backBn = new Button(new TextureRegionDrawable(new Texture("images/ui/return.png")));
         backBn.addListener(new ClickListener(){
             @Override
             public void clicked(InputEvent event, float x, float y) {
                 app.setScreen(new MainScreen(app));
             }
         });
-        navBn = new TextButton("See on map", Style.styleTextLarge);
+        navBn = new Button(new TextureRegionDrawable(new Texture("images/ui/gmap.png")));
         navBn.addListener(new ClickListener(){
             @Override
             public void clicked(InputEvent event, float x, float y) {
@@ -87,15 +108,14 @@ public class PlaceScreen extends NgpScreen {
 
     @Override
     public void resize(int width, int height) {
-        title.setBounds(0.1f*width,height-164,0.8f*width,128);
-        text.setBounds(0.1f*width,200,0.8f*width,128);
-        backBn.setBounds(36,36,0.5f*width-54,128);
-        navBn.setBounds(0.5f*width+18,36,0.5f*width-54,128);
-
+        title.setBounds(0.1f*width,height-160,0.8f*width,128);
+        text.setBounds(0.1f*width,200,0.8f*width,600);
+        backBn.setBounds(36,36,96,96);
+        navBn.setBounds(width-132,36,96,96);
         imageStrip.setBounds(0,height-800,width,600);
-        backdrop.setBounds(0,height-800,width,600);
+        backdrop.setBounds(0,height-892,width,700);
         for (int i = 0; i < images.size; i++){
-            images.get(i).setPosition(i*800,0);
+            images.get(i).setPosition(i*850+50,0);
         }
     }
 

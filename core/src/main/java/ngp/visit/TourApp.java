@@ -38,6 +38,5 @@ public class TourApp extends ApplicationAdapter {
     public void setLanguage(int s) {
 		language = s;
 		screen.refreshText();
-		screen.resize(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
     }
 }
