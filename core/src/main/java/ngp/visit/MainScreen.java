@@ -40,35 +40,9 @@ public class MainScreen extends NgpScreen {
                 super.clicked(event, x, y);
             }
         });
-        int sW = Gdx.graphics.getWidth();
-        int sH = Gdx.graphics.getHeight();
         Image map = new Image(new TextureRegionDrawable(new Texture("map.png")), Scaling.fill, Align.center);
-        DragListener mapDrag = new DragListener() {
-            @Override
-            public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
-                return super.touchDown(event, x, y, pointer, button);
-            }
-
-            @Override
-            public void touchDragged(InputEvent event, float x, float y, int pointer) {
-                float xAct = Gdx.input.getDeltaX(pointer);
-                float yAct = -Gdx.input.getDeltaY(pointer);
-                float xPos = mapGrp.getX()+xAct;
-                float yPos = mapGrp.getY()+yAct;
-                xAct = (xPos > 0 || xPos < (Gdx.graphics.getWidth()-7072))? 0 : xAct;
-                yAct = (yPos > 0 || yPos < (Gdx.graphics.getHeight()-3772))? 0 : yAct;
-                mapGrp.moveBy(xAct,yAct);
-            }
-
-            @Override
-            public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
-                super.touchUp(event,x,y,pointer,button);
-            }
-        };
         mapGrp = new Group();
         mapGrp.addActor(map);
-        stage.addActor(mapGrp);
-        mapGrp.addListener(mapDrag);
         for (int i = 0; i < Text.locations.size; i++){
             Button b = new Button(new TextureRegionDrawable(new Texture("images/ui/"+Text.locations.get(i).icon+".png")));
             int finalI = i;
@@ -81,6 +55,20 @@ public class MainScreen extends NgpScreen {
             mapGrp.addActor(b);
             b.setPosition(Text.locations.get(i).coordinates.x,Text.locations.get(i).coordinates.y);
         }
+        DragListener mapDrag = new DragListener() {
+            @Override
+            public void touchDragged(InputEvent event, float x, float y, int pointer) {
+                float xAct = Gdx.input.getDeltaX(pointer);
+                float yAct = -Gdx.input.getDeltaY(pointer);
+                float xPos = mapGrp.getX()+xAct;
+                float yPos = mapGrp.getY()+yAct;
+                xAct = (xPos > 0 || xPos < (Gdx.graphics.getWidth()-7072))? 0 : xAct;
+                yAct = (yPos > 0 || yPos < (Gdx.graphics.getHeight()-3772))? 0 : yAct;
+                mapGrp.moveBy(xAct,yAct);
+            }
+        };
+        mapGrp.addListener(mapDrag);
+        stage.addActor(mapGrp);
         mapGrp.setPosition(-3300, -650);
         stage.addActor(title);
         stage.addActor(aboutBn);

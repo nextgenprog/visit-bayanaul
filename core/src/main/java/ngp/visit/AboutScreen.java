@@ -13,7 +13,7 @@ import com.badlogic.gdx.utils.Align;
 
 public class AboutScreen extends NgpScreen {
     private TextButton title;
-    private Button backBn, navBn;
+    private Button backBn, navBn, webBn;
     private Label text;
 
     public AboutScreen(TourApp app) {
@@ -46,10 +46,20 @@ public class AboutScreen extends NgpScreen {
                 event.handle();
             }
         });
+        webBn = new Button(new TextureRegionDrawable(new Texture("images/ui/web.png")));
+        webBn.addListener(new ClickListener() {
+            @Override
+            public void clicked(InputEvent event, float x, float y) {
+                super.clicked(event, x, y);
+                Gdx.net.openURI("https://www.nextgenprog.org/");
+                event.handle();
+            }
+        });
         stage.addActor(title);
         stage.addActor(text);
         stage.addActor(backBn);
         stage.addActor(navBn);
+        stage.addActor(webBn);
         resize(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
     }
 
@@ -59,6 +69,7 @@ public class AboutScreen extends NgpScreen {
         text.setBounds(0.1f * width, 120, 0.8f * width, 1400);
         backBn.setBounds(36, height - 132, 96, 96);
         navBn.setBounds(width - 132, height - 132, 96, 96);
+        webBn.setBounds(width - 132, height - 264, 96, 96);
         languages.setPosition(448, 32);
     }
 }

@@ -13,6 +13,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
+import com.badlogic.gdx.scenes.scene2d.utils.DragListener;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 import com.badlogic.gdx.utils.Align;
 import com.badlogic.gdx.utils.Array;
@@ -54,6 +55,16 @@ public class PlaceScreen extends NgpScreen {
                 images.get(i).setPosition(i*850+50,0);}
         }
         stage.addActor(imageStrip);
+        DragListener mapDrag = new DragListener() {
+            @Override
+            public void touchDragged(InputEvent event, float x, float y, int pointer) {
+                float xAct = Gdx.input.getDeltaX(pointer);
+                float xPos = imageStrip.getX()+xAct;
+                xAct = (xPos > 0 || xPos < (Gdx.graphics.getWidth()-7072))? 0 : xAct;
+                imageStrip.moveBy(xAct,0);
+            }
+        };
+        imageStrip.addListener(mapDrag);
         ready = true;
         resize(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
     }
