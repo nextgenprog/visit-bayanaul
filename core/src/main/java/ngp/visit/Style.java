@@ -32,6 +32,11 @@ public class Style {
     // background colour
     static Color back = new Color(0.75f,0.75f,0.75f,1f);
     static Color strip = new Color(0f,0f,0f,1f);
+    static final IntMap<String> about_title = new IntMap<String>(){{
+        put(ENGLISH, "About");
+        put(KAZAKH, "(in Kz) About");
+        put(RUSSIAN, "(in Ru) About");
+    }};
 
     static void init(AssetManager assets){
         assets.load("font/font_1.fnt",BitmapFont.class);
