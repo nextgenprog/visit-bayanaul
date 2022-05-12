@@ -8,6 +8,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.Button;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
+import com.badlogic.gdx.scenes.scene2d.utils.DragListener;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 import com.badlogic.gdx.utils.Align;
 
@@ -15,6 +16,7 @@ public class AboutScreen extends NgpScreen {
     private TextButton title;
     private Button backBn, navBn, webBn;
     private Label text;
+    private NgpActor topBlock;
 
     public AboutScreen(TourApp app) {
         super(app);
@@ -23,6 +25,7 @@ public class AboutScreen extends NgpScreen {
     public void refreshText() {
         title.setText(Text.about_title.get(app.language));
         text.setText(Text.about_text.get(app.language));
+        text.setBounds(0.1f * Gdx.graphics.getWidth(), 120, 0.8f * Gdx.graphics.getWidth(), 1400);
     }
 
     protected void initUI() {
@@ -30,6 +33,16 @@ public class AboutScreen extends NgpScreen {
         text = new Label(Text.about_text.get(app.language), Style.styleLabelLarge);
         text.setWrap(true);
         text.setAlignment(Align.topLeft);
+        DragListener textDrag = new DragListener() {
+            @Override
+            public void touchDragged(InputEvent event, float x, float y, int pointer) {
+                float yAct = Gdx.input.getDeltaY(pointer);
+                float yPos = text.getY()-yAct;
+                yAct = (yPos < 0 || yPos > (Gdx.graphics.getHeight()+2400))? 0 : yAct;
+                text.moveBy(0, -yAct);
+            }
+        };
+        stage.addListener(textDrag);
         backBn = new Button(new TextureRegionDrawable(new Texture("images/ui/return.png")));
         backBn.addListener(new ClickListener() {
             @Override
@@ -55,8 +68,11 @@ public class AboutScreen extends NgpScreen {
                 event.handle();
             }
         });
-        stage.addActor(title);
+        topBlock = new NgpActor(Style.back,Gdx.graphics.getWidth(), 240);
+        topBlock.setPosition(0, Gdx.graphics.getHeight()-240);
         stage.addActor(text);
+        stage.addActor(topBlock);
+        stage.addActor(title);
         stage.addActor(backBn);
         stage.addActor(navBn);
         stage.addActor(webBn);

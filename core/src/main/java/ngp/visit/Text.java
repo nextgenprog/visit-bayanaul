@@ -33,7 +33,16 @@ public class Text {
         about_title.put(Style.KAZAKH,"(Kz) About This App");
         about_title.put(Style.RUSSIAN,"(Ru) About This App");
 
-        about_text.put(Style.ENGLISH,"Cool App developed by schoolchildren in Bayanaul");
+        about_text.put(Style.ENGLISH,"This is an Informative Tourism App developed by " +
+                "schoolchildren in Bayanaul \n\n" +
+                "Next Generation Programmers is an initiative established between alumni of " +
+                "the University of Warwick, in England, Nazarbayev University, in Nursultan, " +
+                "and School Number 2, in Bayanaul. \n\n" +
+                "Volunteers from UK visit the school and teach kids to program from as early as " +
+                "sixth grade. This project was sponsored by the Kazakhstan Ministry of Education, " +
+                "etc. \n\n" +
+                "Thank you for using our app, and remember to leave a review and comments in " +
+                "the App posting");
         about_text.put(Style.KAZAKH,"(Kz) Cool App developed by schoolchildren in Bayanaul");
         about_text.put(Style.RUSSIAN,"(Ru) Cool App developed by schoolchildren in Bayanaul");
     }

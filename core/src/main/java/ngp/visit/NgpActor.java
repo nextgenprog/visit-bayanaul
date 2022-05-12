@@ -9,11 +9,6 @@ import com.badlogic.gdx.scenes.scene2d.Actor;
 public class NgpActor extends Actor {
     private final Texture texture;
 
-    public NgpActor(Texture texture) {
-        super();
-        this.texture = texture;
-    }
-
     public NgpActor(Color color, int width, int height){
         Pixmap pixmap = new Pixmap(width, height, Pixmap.Format.RGB888);
         pixmap.setColor(color);
