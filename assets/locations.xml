@@ -8,9 +8,9 @@
         icon="home"
         x="4100"
         y="1450">
-        <text language="en" name="Bayanaul Village">This is Bayanaul Village with population of about 9000 wonderful people.</text>
-        <text language="kz" name="(Kz) Bayanaul">(in Kazakh) This is Bayanaul Village with population of about 9000 wonderful people.</text>
-        <text language="ru" name="(Ru) Bayanaul">(in Russian) This is Bayanaul Village with population of about 9000 wonderful people.</text>
+        <text language="en" name="Bayanaul Village"></text>
+        <text language="kz" name="(Kz) Bayanaul">(in Kazakh) Баянауыл жер бетіндегі ең қызықты жерлердің бірі.Бұл жерде әркімге орын бар. Бір кереметі – Жасыбай көлі. Мұнда сіз отбасыңызбен уақыт өткізе аласыз. Жаңа достар таба аласыз. Жасыбай көліне баратын  жолдың өзі бір қызық табиғатпен өрнектелген. Тағы бір ғажайып көлдердің бірі ол Торайғыр көлі. Бұл көлдің аты қазақ ақыны және демократы Сұлтанмахмұт Торайғыровтың атымен аталған. Бұл атпен Торайғыр тауы да бар. Бұл жерде қызықсыз болмайтыны сөзсіз. Осы себептерге байланысты Баянауылды әлемнің сегізінші кереметі ретінде атауға болады</text>
+        <text language="ru" name="(Ru) Bayanaul">Баянаул – это выразительный уголок среди полупустынной степи. Склоны гор и долины поражают изобилием и непохожестью видов растений. Того, кто хоть раз побывал в Баянаульских горах, всенепременно вновь потянет сюда, чтобы провести целебный отдых. Пройдя по туристским тропам и познакомившись со старожилами края, Вы расширите знания про это восхитительном и красивейшем уголке Казахстана</text>
     </location>
 
     <location
@@ -22,8 +22,7 @@
         y="1550">
         <text language="en" name="Lake Zhasybai"> Zhasybai is the most beautiful lake of Bayanaul National Park. The place is unique in its history and nature. For example, this reservoir is considered the cleanest in Kazakhstan. &#xA;
 • The infrastructure is not sufficiently developed, so resting in some recreation areas. The time machine will take you back to the Soviet period. Romantic, isn't it? Many holiday homes are clean and cozy, but the living conditions are often Spartan. However, do not be afraid because nature and sincere people compensate for some inconveniences. Rixos Hotel is being built on the shore of Lake Zhasybai for those who like to relax with the best service and for lovers of wild recreation, campfire food and guitar songs, there is a campsite where you can come with your tent or rent it. &#xA;
-• From water activities, you will be offered boating, catamarans and inflatable slides. I hope you enjoy it on Zhasybai!</text>
-
+• From water activities, you will be offered boating, catamarans and inflatable slides. I hope you enjoy it on Zhasybai!</text> 
         <text language="kz" name="Жасыбай көлі">Баянауыл жер бетіндегі ең қызықты жерлердің бірі. Бұл жерде әркімге орын бар. Бір керемет орын – Жасыбай көлі. Мұнда сіз отбасыңызбен уақыт өткізіп, жаңа достар таба аласыз. Жасыбай көлі жайлы аңыздар өте көп. Солардың бірі  танымал  Жасыбай батыр туралы. Жасыбай батыр осы  жерде қалмақтарға қарсы шайқасқан деген аңыз бар. Егерде тағы да аңыздар білгіңіз келсе Баянауылға келіңіз! </text>
         <text language="ru" name="Жасыбай">Жасыбай - богатство Баянаула и отдельная зона отдыха. Она манит своими ценными источниками и красивыми пейзажами. Кто же не захочет в такое курортное место? Тем более в краях Баянаула, где самые изысканные легенды и необычные природные достопримечательности. А в отдельных местах бывают и приятные бонусы, в виде лечебных средств или разновидности рыб. Каждый из желающих может посетить это место, с нашим казахским гостеприимством!</text>
     </location>
@@ -35,9 +34,9 @@
         icon="swim"
         x="4700"
         y="1651">
-        <text language="en" name="Lake Toraigyr">At Lake Toraigyr rises the Peak of the Brave. the rock bears this name recently - from the 1950s, when the mass development of tourism in the Bayanaul mountains began.</text>
-        <text language="kz" name="(Kz) Lake Toraigyr">(in Kazakh) At Lake Toraigyr rises the Peak of the Brave. the rock bears this name recently - from the 1950s, when the mass development of tourism in the Bayanaul mountains began.</text>
-        <text language="ru" name="(Ru) Lake Toraigyr">(in Russian) At Lake Toraigyr rises the Peak of the Brave. the rock bears this name recently - from the 1950s, when the mass development of tourism in the Bayanaul mountains began.</text>
+        <text language="en" name="Lake Toraigyr"></text>
+        <text language="kz" name="(Kz) Lake Toraigyr">(in Kazakh)</text>
+        <text language="ru" name="(Ru) Lake Toraigyr">(in Russian)</text>
     </location>
 
     <location
@@ -49,7 +48,7 @@
         y="1900">
         <text language="en" name="Kempirtas Rock">Another miracle of nature is the rock Kempirtas or Baba Yaga.  On the one hand you will see an old woman, and on the other the appearance of a young girl.</text>
         <text language="kz" name="(Kz) Kempirtas Rock">Пішіні мен сұлулығының арқасында  таң қалдыратын жартас - "Кемпір тас " деп алады.  Бұл жартас қиялды туғызып, осы табиғи жаратылысқа қарап, адамдар табиғаттың күшті және әдемі екенін түсінеді.  Бұл жартас су мен желдің әсерінен бір жағынан кемпірге ұқсап кеткендіктен осылай аталды, бірақ екінші жағынан мұқият қарасаңыз, бұл тау жас жұмбақ қызға ұқсайтынын көресіз.</text>
-        <text language="ru" name="(Ru) Kempirtas Rock">Скала «Баба Яга»-находится около замечательного озера Жасыбай, вблизи поселка Баянаул Павлодарской области, на северо-востоке Казахстана. Эта скала, огромный каменный валун, сформулировавший силуэт бабушки. Скалу прозвали «Баба Яга» туристы, поскольку она очень сильно напоминала этого сказочного персонажа. Также, в нашем Баянаульском национальном парке, находится скала булка и другие не менее замечательные каменные валуны. Скала «Булка» - впечатляющая огромная скала в виде броненосца. Скала названа так, поскольку внешне напоминает обычную булку с начинкой. Она расположена неподалёку от «Бабы Яги». Скала «Баба Яга» наиболее известный природный памятник во всем парке, который также называют просто «Каменной головой», на казахском «Кемпір тас».</text>
+        <text language="ru" name="(Ru) Скала Баба Яга"> Скала Баба Яга-находится около замечательного озера Жасыбай, вблизи поселка Баянаул Павлодарской области, на северо-востоке Казахстана. Эта скала, огромный каменный валун, сформулировавший силуэт бабушки. Скалу прозвали «Баба Яга» туристы, поскольку она очень сильно напоминала этого сказочного персонажа. Также, в нашем Баянаульском национальном парке, находится скала булка и другие не менее замечательные каменные валуны. Скала «Булка» - впечатляющая огромная скала в виде броненосца. Скала названа так, поскольку внешне напоминает обычную булку с начинкой. Она расположена неподалёку от «Бабы Яги». Скала «Баба Яга» наиболее известный природный памятник во всем парке, который также называют просто «Каменной головой», на казахском «Кемпір тас».</text>
     </location>
 
     <location
@@ -59,10 +58,10 @@
         icon="mount"
         x="3850"
         y="2050">
-        <text language="en" name="Serketas"> </text>
-        <text language="kz" name="(Kz) Serketas "> Серкетас - Баянауыл ұлттық саябағының ең қызықты жерлерінің бірі. Сіз бұл биіктікті өзіне бағындыра алып, жеңілдік, релаксация деген сезімдерден өтесіз. Мұндай жерлер біздің ауданда сирек кездеседі, әсіресе осыған ұқсас әсерлі аңызбен.
+        <text language="en" name="Serketas">At Lake Toraigyr rises the Peak of the Brave. the rock bears this name recently - from the 1950s, when the mass development of tourism in the Bayanaul mountains began. </text>
+        <text language="kz" name="(Kz)  Серкетас"> Серкетас - Баянауыл ұлттық саябағының ең қызықты жерлерінің бірі. Сіз бұл биіктікті өзіне бағындыра алып, жеңілдік, релаксация деген сезімдерден өтесіз. Мұндай жерлер біздің ауданда сирек кездеседі, әсіресе осыған ұқсас әсерлі аңызбен.
 Егер біз аңыз туралы айтар болсақ, Серкетастың бір бөлігінде қорқынышты үш бас жылан өмір сүрді, онымен күресуге қуаты жеткен жеті батыл ағайынды батырлар болды. Иә, олар оны жеңе алды. Мұра ретінде өз ұрпағына қалдырды деген аңыз бар. Мұны еске алу үшін табиғат оған орай олардың мүсіндерін жасады: Ақбет тауының етегінде 7 шығыңқы тас, ал жағалауда жыланның 3 басы бейнеленген тәрізді. Бұл аңыз шыныменде әр елдерден келген туристерді қызықтырады... </text>
-        <text language="ru" name="(Ru) Serketas"> Пик смелых очень интересная скала. По своей форме она напоминает цунами или большую волну. Она находится в посёлке Торайгыр рядом с местным родником. Я не видел людей которые смогли забраться на гору, но они есть. Сюда часто приезжают туристы с разных городов, а в  некоторых местах Баянаула местные торгуют сувенирами, где изображены красивые скалы и достопримечательности Баянаула. </text>
+        <text language="ru" name="(Ru) Пик смелых "> Пик смелых очень интересная скала. По своей форме она напоминает цунами или большую волну. Она находится в посёлке Торайгыр рядом с местным родником. Я не видел людей которые смогли забраться на гору, но они есть. Сюда часто приезжают туристы с разных городов, а в  некоторых местах Баянаула местные торгуют сувенирами, где изображены красивые скалы и достопримечательности Баянаула. </text>
     </location> 
 
 </folder>
