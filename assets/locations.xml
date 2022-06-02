@@ -8,7 +8,7 @@
         icon="home"
         x="4100"
         y="1450">
-        <text language="en" name="Bayanaul Village"></text>
+        <text language="en" name="Bayanaul Village"><If you want to get a vacation with your family, relax and have fun or visit beautiful place with unususal nature, welcome to wonderful places of Bayanaul. Bayanaul National Park was opened to maintain the natural vegetation and animal species of the surrounding mountainous region.    As for me, when Ithink about Bayanayl - it is lakes with clear water,  forest animals,  mountains and unusual rocks, recreation area and fresh  air))))))>
         <text language="kz" name="(Kz) Bayanaul">Баянауыл жер бетіндегі ең қызықты жерлердің бірі.Бұл жерде әркімге орын бар. Бір кереметі – Жасыбай көлі. Мұнда сіз отбасыңызбен уақыт өткізе аласыз. Жаңа достар таба аласыз. Жасыбай көліне баратын  жолдың өзі бір қызық табиғатпен өрнектелген. Тағы бір ғажайып көлдердің бірі ол Торайғыр көлі. Бұл көлдің аты қазақ ақыны және демократы Сұлтанмахмұт Торайғыровтың атымен аталған. Бұл атпен Торайғыр тауы да бар. Бұл жерде қызықсыз болмайтыны сөзсіз. Осы себептерге байланысты Баянауылды әлемнің сегізінші кереметі ретінде атауға болады</text>
         <text language="ru" name="(Ru) Bayanaul">Баянаул – это выразительный уголок среди полупустынной степи. Склоны гор и долины поражают изобилием и непохожестью видов растений. Того, кто хоть раз побывал в Баянаульских горах, всенепременно вновь потянет сюда, чтобы провести целебный отдых. Пройдя по туристским тропам и познакомившись со старожилами края, Вы расширите знания про это восхитительном и красивейшем уголке Казахстана</text>
     </location>
@@ -34,9 +34,12 @@
         icon="swim"
         x="4700"
         y="1651">
-        <text language="en" name="Lake Toraigyr"></text>
+        <text language="en" name="Lake Toraigyr"><One of the clear lakes is  "Toraigyr" lake, which is wonderful and beautiful at any time of the year. It is like a mirror of a person's soul. Every time you look at it, you can see your reflection. This lake is so amazing as  attracts every person, especially who loves nature. Everyone may get there  easily. As for me, I suppose  each of the tourists should visit this unusual place. There are a lot of rocks  and mountain near lake,  flowers, coastal forest and gorges make your walking nice.  >
         <text language="kz" name="(Kz) Lake Toraigyr">(Kz)</text>
-        <text language="ru" name="(Ru) Lake Toraigyr">(Ru)</text>
+        <text language="ru" name="(Ru) Lake Toraigyr">(Ru)<В зоне отдыха Баянауыл есть ещё один из живописных мест - Торайгыр.
+Когда вы заезжаете сюда, сначала вас встречают горы, потом село, словно огромная волна океана - гора "Пик смелых" и ручей, холодной и кристально чистой водой.
+Прекрасная прогулка вас ждёт вдоль ручья,  сопровождением деревьями находящиеся в красной книге Казахстана- "Чёрная альха".
+Ручей плавно переходит озеро.  Чистая вода для купания, отличная рыбалка и прекрасная прогулка семьёй и друзьями - оставит прекрасные впечатления.>
     </location>
 
     <location
