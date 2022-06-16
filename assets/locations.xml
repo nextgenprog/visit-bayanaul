@@ -67,5 +67,17 @@
         <text language="ru" name="Пик смелых"> Пик смелых очень интересная скала. По своей форме она напоминает цунами или большую волну. Она находится в посёлке Торайгыр рядом с местным родником. Я не видел людей которые смогли забраться на гору, но они есть. Сюда часто приезжают туристы с разных городов, а в  некоторых местах Баянаула местные торгуют сувенирами, где изображены красивые скалы и достопримечательности Баянаула. </text>
     </location> 
 
+    <location
+        mapUrl"https://goo.gl/maps/LR2xCXVekpecDfjX9"
+        images="images/locations/konyr/"
+        photo-credit="Name Surname (2022)"
+        icon="mount"
+        x="3850"
+        y="2050">
+        <text language="en" name="Konyr Aulie"> </text>
+        <text language="kz" name="in kazakh">  </text>
+        <text language="ru" name="in russian">  </text>
+    </location> 
+
         
 </folder>
