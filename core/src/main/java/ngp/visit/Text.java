@@ -34,7 +34,8 @@ public class Text {
         about_title.put(Style.RUSSIAN,"(Ru) About This App");
 
         about_text.put(Style.ENGLISH,"This is an Informative Tourism App developed by " +
-                "schoolchildren in Bayanaul \n\n" +
+                "schoolchildren in Bayanaul                          " +
+                "" +
                 "Next Generation Programmers is an initiative established between alumni of " +
                 "the University of Warwick, in England, Nazarbayev University, in Nursultan, " +
                 "and School Number 2, in Bayanaul. \n\n" +

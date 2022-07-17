@@ -17,7 +17,8 @@ import com.badlogic.gdx.utils.Scaling;
 import java.util.HashMap;
 
 public class MainScreen extends NgpScreen {
-    private TextButton title, aboutBn;
+    private TextButton aboutBn;
+    private Button title;
     private Group mapGrp;
 
     public MainScreen(TourApp app) {
@@ -25,7 +26,7 @@ public class MainScreen extends NgpScreen {
     }
 
     public void initUI() {
-        title = new TextButton(Text.main_title.get(app.language), Style.styleTextLarge);
+        title = new Button(new TextureRegionDrawable(new Texture("title.png")));
         aboutBn = new TextButton(Text.about_button.get(app.language), Style.styleTextLarge);
         aboutBn.addListener(new ClickListener(){
             @Override
@@ -40,7 +41,7 @@ public class MainScreen extends NgpScreen {
                 super.clicked(event, x, y);
             }
         });
-        Image map = new Image(new TextureRegionDrawable(new Texture("map.png")), Scaling.fill, Align.center);
+        Image map = new Image(new TextureRegionDrawable(new Texture("map.jpg")), Scaling.fill, Align.center);
         mapGrp = new Group();
         mapGrp.addActor(map);
         for (int i = 0; i < Text.locations.size; i++){
@@ -76,7 +77,7 @@ public class MainScreen extends NgpScreen {
 
     @Override
     public void resize(int width, int height) {
-        title.setBounds(0.2f*width,height-160,0.6f*width,128);
+        title.setBounds(24,height-264,1032,240);
         languages.setPosition(448, 32);
         aboutBn.setBounds(64, 32, 320,148);
     }
@@ -92,7 +93,6 @@ public class MainScreen extends NgpScreen {
     @Override
     public void refreshText() {
         aboutBn.setText(Text.about_button.get(app.language));
-        title.setText(Text.main_title.get(app.language));
     }
 
     @Override

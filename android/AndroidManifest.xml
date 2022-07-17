@@ -6,8 +6,10 @@
 	<application
 			android:allowBackup="true"
         	android:fullBackupContent="true"
-			android:icon="@drawable/ic_launcher"
-			android:isGame="true"
+			android:icon="@mipmap/vb_logo"
+			android:roundIcon="@mipmap/vb_logo_round"
+			android:logo="@mipmap/vb_logo"
+			android:isGame="false"
 			android:appCategory="game"
         	android:label="@string/app_name"
         	tools:ignore="UnusedAttribute"
