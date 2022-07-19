@@ -9,7 +9,6 @@ import com.badlogic.gdx.utils.XmlReader;
 
 public class Text {
     public static final Array<LocationData> locations = new Array<>();
-    public static final IntMap<String> main_title = new IntMap<>();
     public static final IntMap<String> about_button = new IntMap<>();
     public static final IntMap<String> about_title = new IntMap<>();
     public static final IntMap<String> about_text = new IntMap<>();
@@ -21,10 +20,6 @@ public class Text {
             locations.add(initLoc(root.getChild(i)));
         }
 
-        main_title.put(Style.ENGLISH,"Visit Bayanaul!");
-        main_title.put(Style.KAZAKH,"(Kz) Visit Bayanaul!");
-        main_title.put(Style.RUSSIAN,"(Ru) Visit Bayanaul!");
-
         about_button.put(Style.ENGLISH,"About");
         about_button.put(Style.KAZAKH,"(Kz) About");
         about_button.put(Style.RUSSIAN,"(Ru) About");
@@ -34,8 +29,7 @@ public class Text {
         about_title.put(Style.RUSSIAN,"(Ru) About This App");
 
         about_text.put(Style.ENGLISH,"This is an Informative Tourism App developed by " +
-                "schoolchildren in Bayanaul                          " +
-                "" +
+                "schoolchildren in Bayanaul. \n\n" +
                 "Next Generation Programmers is an initiative established between alumni of " +
                 "the University of Warwick, in England, Nazarbayev University, in Nursultan, " +
                 "and School Number 2, in Bayanaul. \n\n" +

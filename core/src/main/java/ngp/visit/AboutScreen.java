@@ -1,5 +1,10 @@
 package ngp.visit;
 
+import static ngp.visit.Style.BOXHEIGHT;
+import static ngp.visit.Style.PHOTOHEIGHT;
+import static ngp.visit.Style.SPACING;
+import static ngp.visit.Style.WIDESPACE;
+
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
@@ -68,10 +73,7 @@ public class AboutScreen extends NgpScreen {
                 event.handle();
             }
         });
-        topBlock = new NgpActor(Style.back,Gdx.graphics.getWidth(), 240);
-        topBlock.setPosition(0, Gdx.graphics.getHeight()-240);
         stage.addActor(text);
-        stage.addActor(topBlock);
         stage.addActor(title);
         stage.addActor(backBn);
         stage.addActor(navBn);
@@ -81,11 +83,13 @@ public class AboutScreen extends NgpScreen {
 
     @Override
     public void resize(int width, int height) {
-        title.setBounds(0.2f * width, height - 160, 0.6f * width, 128);
-        text.setBounds(0.1f * width, 120, 0.8f * width, 1400);
-        backBn.setBounds(36, height - 132, 96, 96);
-        navBn.setBounds(width - 132, height - 132, 96, 96);
-        webBn.setBounds(width - 132, height - 264, 96, 96);
-        languages.setPosition(448, 32);
+        int wideSpace = Style.dims.get(WIDESPACE,0);
+        int space = Style.dims.get(SPACING,0);
+        int size = Style.dims.get(BOXHEIGHT,0);
+        title.setBounds(wideSpace,height-space-size,width-2*wideSpace-space-size, size);
+        backBn.setBounds(space,space,size,size);
+        text.setBounds(wideSpace, wideSpace, width-wideSpace*2, height - space*2 -size -wideSpace);
+        navBn.setBounds(width - (space+size), height - (space+size), size, size);
+        webBn.setBounds(width - (space+size), height - 2*(space+size), size, size);
     }
 }

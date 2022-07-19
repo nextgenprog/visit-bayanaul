@@ -1,7 +1,9 @@
 package ngp.visit;
 
+import static ngp.visit.Style.BOXHEIGHT;
+import static ngp.visit.Style.SPACING;
+
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.scenes.scene2d.Group;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
@@ -13,8 +15,6 @@ import com.badlogic.gdx.scenes.scene2d.utils.DragListener;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 import com.badlogic.gdx.utils.Align;
 import com.badlogic.gdx.utils.Scaling;
-
-import java.util.HashMap;
 
 public class MainScreen extends NgpScreen {
     private TextButton aboutBn;
@@ -73,13 +73,17 @@ public class MainScreen extends NgpScreen {
         mapGrp.setPosition(-3300, -650);
         stage.addActor(title);
         stage.addActor(aboutBn);
+        stage.addActor(languages);
+        refreshText();
     }
 
     @Override
     public void resize(int width, int height) {
-        title.setBounds(24,height-264,1032,240);
-        languages.setPosition(448, 32);
-        aboutBn.setBounds(64, 32, 320,148);
+        int titleW = width-2* SPACING;
+        int titleH = (int)(10*titleW/43f);
+        title.setBounds(SPACING,height- SPACING-titleH, titleW, titleH);
+        languages.setPosition(width-Style.dims.get(SPACING,0)-468, Style.dims.get(SPACING,0));
+        aboutBn.setBounds(0.5f*(width-668-Style.dims.get(SPACING,0)), Style.dims.get(SPACING,0), 200,Style.dims.get(BOXHEIGHT,0));
     }
 
     @Override

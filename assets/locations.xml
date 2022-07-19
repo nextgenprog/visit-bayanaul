@@ -59,21 +59,33 @@
         images="images/locations/serketas/"
         photo-credit="Name Surname (2022)"
         icon="mount"
-        x="3650"
-        y="2600">
+        x="3600"
+        y="2780">
         <text language="en" name="Peak of the Brave">At Lake Toraigyr rises the Peak of the Brave. the rock bears this name recently - from the 1950s, when the mass development of tourism in the Bayanaul mountains began. </text>
         <text language="kz" name="Серкетас"> Серкетас - Баянауыл ұлттық саябағының ең қызықты жерлерінің бірі. Сіз бұл биіктікті өзіне бағындыра алып, жеңілдік, релаксация деген сезімдерден өтесіз. Мұндай жерлер біздің ауданда сирек кездеседі, әсіресе осыған ұқсас әсерлі аңызбен.
-Егер біз аңыз туралы айтар болсақ, Серкетастың бір бөлігінде қорқынышты үш бас жылан өмір сүрді, онымен күресуге қуаты жеткен жеті батыл ағайынды батырлар болды. Иә, олар оны жеңе алды. Мұра ретінде өз ұрпағына қалдырды деген аңыз бар. Мұны еске алу үшін табиғат оған орай олардың мүсіндерін жасады: Ақбет тауының етегінде 7 шығыңқы тас, ал жағалауда жыланның 3 басы бейнеленген тәрізді. Бұл аңыз шыныменде әр елдерден келген туристерді қызықтырады... </text>
+            Егер біз аңыз туралы айтар болсақ, Серкетастың бір бөлігінде қорқынышты үш бас жылан өмір сүрді, онымен күресуге қуаты жеткен жеті батыл ағайынды батырлар болды. Иә, олар оны жеңе алды. Мұра ретінде өз ұрпағына қалдырды деген аңыз бар. Мұны еске алу үшін табиғат оған орай олардың мүсіндерін жасады: Ақбет тауының етегінде 7 шығыңқы тас, ал жағалауда жыланның 3 басы бейнеленген тәрізді. Бұл аңыз шыныменде әр елдерден келген туристерді қызықтырады... </text>
         <text language="ru" name="Пик смелых"> Пик смелых очень интересная скала. По своей форме она напоминает цунами или большую волну. Она находится в посёлке Торайгыр рядом с местным родником. Я не видел людей которые смогли забраться на гору, но они есть. Сюда часто приезжают туристы с разных городов, а в  некоторых местах Баянаула местные торгуют сувенирами, где изображены красивые скалы и достопримечательности Баянаула. </text>
-    </location> 
+    </location>
 
     <location
-        mapUrl="https://goo.gl/maps/LR2xCXVekpecDfjX9"
+        mapUrl="https://goo.gl/maps/46AanErQnqQ1t7xg7"
+        images="images/locations/akbet/"
+        photo-credit="Name Surname (2022)"
+        icon="mount"
+        x="3650"
+        y="2600">
+        <text language="en" name="Akbet Peak"></text>
+        <text language="kz" name=""></text>
+        <text language="ru" name=""></text>
+    </location>
+
+    <location
+        mapUrl="https://goo.gl/maps/YZrCzhZZawjMreRM8"
         images="images/locations/konyr/"
         photo-credit="Name Surname (2022)"
         icon="mount"
-        x="3850"
-        y="2050">
+        x="2030"
+        y="2000">
         <text language="en" name="Konyr Aulie"> </text>
         <text language="kz" name="in kazakh">  </text>
         <text language="ru" name="in russian">  </text>

@@ -1,5 +1,8 @@
 package ngp.visit;
 
+import static ngp.visit.Style.BOXHEIGHT;
+import static ngp.visit.Style.SPACING;
+
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.Color;
@@ -19,35 +22,36 @@ public abstract class NgpScreen implements Screen {
 
     protected NgpScreen(TourApp app) {
         this.app = app;
-        initUI();
 
         en = new Button(app.langBns.get(Style.ENGLISH));
         kz = new Button(app.langBns.get(Style.KAZAKH));
         ru = new Button(app.langBns.get(Style.RUSSIAN));
 
-        selector = new NgpActor(Color.DARK_GRAY,138,74);
+        selector = new NgpActor(Color.DARK_GRAY,148,84);
 
         en.addListener(new ClickListener(){@Override public void clicked(InputEvent event, float x, float y) {
             super.clicked(event, x, y);
-            if (app.language != Style.ENGLISH) {app.setLanguage(Style.ENGLISH); selector.setPosition(10,0);}
+            if (app.language != Style.ENGLISH) {app.setLanguage(Style.ENGLISH); selector.setPosition(0,0);}
         }
         });
         kz.addListener(new ClickListener(){@Override public void clicked(InputEvent event, float x, float y) {
             super.clicked(event, x, y);
-            if (app.language != Style.KAZAKH) {app.setLanguage(Style.KAZAKH); selector.setPosition(210,0);}
+            if (app.language != Style.KAZAKH) {app.setLanguage(Style.KAZAKH); selector.setPosition(160,0);}
         }
         });
         ru.addListener(new ClickListener(){@Override public void clicked(InputEvent event, float x, float y) {
             super.clicked(event, x, y);
-            if (app.language != Style.RUSSIAN) {app.setLanguage(Style.RUSSIAN); selector.setPosition(410,0);}
+            if (app.language != Style.RUSSIAN) {app.setLanguage(Style.RUSSIAN); selector.setPosition(320,0);}
         }
         });
         languages.addActor(selector);
-        selector.setPosition(10+app.language*200,0);
+        selector.setPosition(app.language*160,0);
         languages.addActor(en);
         languages.addActor(kz);
         languages.addActor(ru);
-        en.setPosition(10,10);kz.setPosition(210,10);ru.setPosition(410,10);
+        en.setPosition(10,10);kz.setPosition(170,10);ru.setPosition(330,10);
+        languages.setPosition(Gdx.graphics.getWidth()-Style.dims.get(SPACING,0)-468, Style.dims.get(SPACING,0));
+        initUI();
         stage.addActor(languages);
         resize(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
         Gdx.input.setInputProcessor(stage);

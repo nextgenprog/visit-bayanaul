@@ -1,5 +1,10 @@
 package ngp.visit;
 
+import static ngp.visit.Style.BOXHEIGHT;
+import static ngp.visit.Style.PHOTOHEIGHT;
+import static ngp.visit.Style.SPACING;
+import static ngp.visit.Style.WIDESPACE;
+
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
@@ -18,15 +23,13 @@ import com.badlogic.gdx.utils.Scaling;
 
 public class PlaceScreen extends NgpScreen {
     private final LocationData locData;
-    private TextButton title, aboutBn;
+    private TextButton title;
     private final Group imageStrip = new Group();
-    private final NgpActor backdrop;
-    private NgpActor topBlock;
     private Button backBn, navBn;
     private final Array<Image> images;
     private Label text;
-    private final boolean ready;
     private boolean scrollText;
+    private int width = Style.dims.get(WIDESPACE,0);
 
     public PlaceScreen(TourApp app, LocationData locData){
         super(app);
@@ -39,25 +42,31 @@ public class PlaceScreen extends NgpScreen {
                 event.handle();
             }
         });
-        backdrop = new NgpActor(Color.DARK_GRAY,8,8);
-        imageStrip.addActor(backdrop);
         images = new Array<>();
-        float width = 50;
-        for (int i = 0; i < 19; i++){
+        int photoH = Style.dims.get(PHOTOHEIGHT,0);
+        int wideSpace = Style.dims.get(WIDESPACE,0);
+        for (int x = 0; x < 99; x++){
             Image img = null;
-            String test = locData.imageLoc.concat(Integer.toString(i+1).concat(".png"));
+            String test = locData.imageLoc.concat(Integer.toString(x+1).concat(".jpg"));
             try{img = new Image(new Texture(test));}catch(Exception e){
-                test = locData.imageLoc.concat(Integer.toString(i+1).concat(".jpg"));
+                test = locData.imageLoc.concat(Integer.toString(x+1).concat(".png"));
                 try{img = new Image(new Texture(test));}catch(Exception f){
-                    test = locData.imageLoc.concat(Integer.toString(i+1).concat(".jpeg"));
-                    try{img = new Image(new Texture(test));
-                    }catch(Exception ignored){}}}
+                    test = locData.imageLoc.concat(Integer.toString(x+1).concat(".jpeg"));
+                    try{img = new Image(new Texture(test));}catch(Exception ignored){
+                        test = locData.imageLoc.concat(Integer.toString(x+1).concat(".JPG"));
+                        try{img = new Image(new Texture(test));}catch(Exception g){
+                            test = locData.imageLoc.concat(Integer.toString(x+1).concat(".JPEG"));
+                            try{img = new Image(new Texture(test));}catch(Exception h){
+                                test = locData.imageLoc.concat(Integer.toString(x+1).concat(".PNG"));
+                                try{img = new Image(new Texture(test));}catch(Exception ignored1){}}}}}}
             if (null!=img) {
-                img.setSize(800,400);
+                img.setSize(photoH*2, photoH);
                 img.setScaling(Scaling.fill);
                 images.add(img);
-                imageStrip.addActor(images.get(i));
-                images.get(i).setPosition(width,0);}
+                width += photoH*2+wideSpace;
+                imageStrip.addActor(images.get(x));
+                images.get(x).setPosition(wideSpace+x*(wideSpace+photoH*2),0);
+            }
         }
         stage.addActor(imageStrip);
         DragListener mapDrag = new DragListener() {
@@ -65,32 +74,27 @@ public class PlaceScreen extends NgpScreen {
             public void touchDragged(InputEvent event, float x, float y, int pointer) {
                 float xAct = Gdx.input.getDeltaX(pointer);
                 float xPos = imageStrip.getX()+xAct;
-                xAct = (xPos > 0 || xPos < (Gdx.graphics.getWidth()-7072))? 0 : xAct;
+                xAct = (xPos > 0 || xPos < (Gdx.graphics.getWidth()-width))? 0 : xAct;
                 imageStrip.moveBy(xAct,0);
             }
         };
         imageStrip.addListener(mapDrag);
-        ready = true;
+        stage.addActor(title);
+        stage.addActor(backBn);
+        stage.addActor(navBn);
         resize(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
+        refreshText();
+        imageStrip.setPosition(0, Gdx.graphics.getHeight() - 3*Style.dims.get(WIDESPACE,0)-Style.dims.get(BOXHEIGHT,0)- Style.dims.get(PHOTOHEIGHT,0));stage.addActor(text);
+
     }
 
     public void refreshText(){
         title.setText(locData.name.get(app.language));
         text.setText(locData.contents.get(app.language));
-        aboutBn.setText(Text.about_button.get(app.language));
-        text.setBounds(0.1f*Gdx.graphics.getWidth(),0,0.8f*Gdx.graphics.getWidth(),Gdx.graphics.getHeight()-860);
     }
 
     public void initUI() {
         title = new TextButton("", Style.styleTextLarge);
-        aboutBn = new TextButton(Text.about_button.get(app.language), Style.styleTextLarge);
-        aboutBn.addListener(new ClickListener(){
-            @Override
-            public void clicked(InputEvent event, float x, float y) {
-                super.clicked(event, x, y);
-                app.setScreen(new AboutScreen(app));
-            }
-        });
         text = new Label("", Style.styleLabelLarge);
         text.setWrap(true);
         text.setAlignment(Align.topLeft);
@@ -120,32 +124,21 @@ public class PlaceScreen extends NgpScreen {
             }
         };
         stage.addListener(textDrag);
-        topBlock = new NgpActor(Style.back,Gdx.graphics.getWidth(), 800);
-        topBlock.setPosition(0, Gdx.graphics.getHeight()-800);
         stage.addActor(text);
-        stage.addActor(topBlock);
-        stage.addActor(aboutBn);
-        stage.addActor(title);
-        stage.addActor(backBn);
-        stage.addActor(navBn);
+//        stage.addActor(imageStrip);
         resize(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
     }
 
     @Override
     public void resize(int width, int height) {
-        title.setBounds(0.2f*width,height-160,0.6f*width,128);
-        text.setBounds(0.1f*width,0,0.8f*width,height-860);
-        backBn.setBounds(36,height-132,96,96);
-        navBn.setBounds(width-132,height-132,96,96);
-        if (ready) {
-            imageStrip.setBounds(0, height - 800, width, 600);
-            backdrop.setBounds(0, height - 892, width, 700);
-            for (int i = 0; i < images.size; i++) {
-                images.get(i).setPosition(i * 850 + 50, 0);
-            }
-        }
-        languages.setPosition(448, 32);
-        aboutBn.setBounds(64, 32, 320,148);
+        int wideSpace = Style.dims.get(WIDESPACE,0);
+        int space = Style.dims.get(SPACING,0);
+        int size = Style.dims.get(BOXHEIGHT,0);
+        int photoHeight = Style.dims.get(PHOTOHEIGHT,0);
+        title.setBounds(wideSpace,height-space-size,width-2*wideSpace-space-size, size);
+        backBn.setBounds(space,space,size,size);
+        text.setBounds(wideSpace,0,width-2*wideSpace,height-photoHeight-wideSpace*7-size);
+        navBn.setBounds(width-space-size,height-space-size,size,size);
     }
 
     @Override

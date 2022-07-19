@@ -2,14 +2,8 @@ package ngp.visit;
 
 import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.assets.AssetManager;
-import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.scenes.scene2d.Group;
-import com.badlogic.gdx.scenes.scene2d.InputEvent;
-import com.badlogic.gdx.scenes.scene2d.ui.Button;
-import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 import com.badlogic.gdx.utils.IntMap;
 
@@ -23,7 +17,7 @@ public class TourApp extends ApplicationAdapter {
 	@Override
 	public void create() {
 		assets = new AssetManager();
-		Style.init(assets);
+		Style.init(assets, Gdx.graphics.getWidth());
 		Text.init();
 		langBns.put(Style.ENGLISH,new TextureRegionDrawable(new Texture("images/ui/en.png")));
 		langBns.put(Style.KAZAKH,new TextureRegionDrawable(new Texture("images/ui/KZ.png")));
