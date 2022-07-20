@@ -26,10 +26,9 @@ public class PlaceScreen extends NgpScreen {
     private TextButton title;
     private final Group imageStrip = new Group();
     private Button backBn, navBn;
-    private final Array<Image> images;
     private Label text;
     private boolean scrollText;
-    private int width = Style.dims.get(WIDESPACE,0);
+    private int width;
 
     public PlaceScreen(TourApp app, LocationData locData){
         super(app);
@@ -42,30 +41,41 @@ public class PlaceScreen extends NgpScreen {
                 event.handle();
             }
         });
-        images = new Array<>();
+        PadActor background = new PadActor();
+        imageStrip.addActor(background);
+        Array<Image> images = new Array<>();
         int photoH = Style.dims.get(PHOTOHEIGHT,0);
-        int wideSpace = Style.dims.get(WIDESPACE,0);
-        for (int x = 0; x < 99; x++){
+        int wideSpace = Style.dims.get(SPACING,0);
+        width += wideSpace;
+        for (int x = 1; x < 100; x++){
             Image img = null;
-            String test = locData.imageLoc.concat(Integer.toString(x+1).concat(".jpg"));
-            try{img = new Image(new Texture(test));}catch(Exception e){
-                test = locData.imageLoc.concat(Integer.toString(x+1).concat(".png"));
-                try{img = new Image(new Texture(test));}catch(Exception f){
-                    test = locData.imageLoc.concat(Integer.toString(x+1).concat(".jpeg"));
-                    try{img = new Image(new Texture(test));}catch(Exception ignored){
-                        test = locData.imageLoc.concat(Integer.toString(x+1).concat(".JPG"));
-                        try{img = new Image(new Texture(test));}catch(Exception g){
-                            test = locData.imageLoc.concat(Integer.toString(x+1).concat(".JPEG"));
-                            try{img = new Image(new Texture(test));}catch(Exception h){
-                                test = locData.imageLoc.concat(Integer.toString(x+1).concat(".PNG"));
-                                try{img = new Image(new Texture(test));}catch(Exception ignored1){}}}}}}
+            String num = locData.imageLoc.concat(Integer.toString(x)).concat(".");
+            String test = num+"jpg";
+            try{img = new Image(new Texture(test));}
+            catch(Exception e){
+                test = num+"png";
+                try{img = new Image(new Texture(test));}
+                catch(Exception f){
+                    test = num+"jpeg";
+                    try{img = new Image(new Texture(test));}
+                    catch(Exception g){
+                        test = num+"JPG";
+                        try{img = new Image(new Texture(test));}
+                        catch(Exception h){
+                            test = num+"PNG";
+                            try{img = new Image(new Texture(test));}
+                            catch(Exception i){
+                                test = num+"JPEG";
+                                try{img = new Image(new Texture(test));}
+                                catch(Exception ignored){}}}}}}
+
             if (null!=img) {
                 img.setSize(photoH*2, photoH);
                 img.setScaling(Scaling.fill);
                 images.add(img);
+                imageStrip.addActor(images.get(x-1));
+                images.get(x-1).setPosition(width,0);
                 width += photoH*2+wideSpace;
-                imageStrip.addActor(images.get(x));
-                images.get(x).setPosition(wideSpace+x*(wideSpace+photoH*2),0);
             }
         }
         stage.addActor(imageStrip);
@@ -82,6 +92,7 @@ public class PlaceScreen extends NgpScreen {
         stage.addActor(title);
         stage.addActor(backBn);
         stage.addActor(navBn);
+        background.setBounds(0,0,width,photoH + 4*wideSpace);
         resize(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
         refreshText();
         imageStrip.setPosition(0, Gdx.graphics.getHeight() - 3*Style.dims.get(WIDESPACE,0)-Style.dims.get(BOXHEIGHT,0)- Style.dims.get(PHOTOHEIGHT,0));stage.addActor(text);

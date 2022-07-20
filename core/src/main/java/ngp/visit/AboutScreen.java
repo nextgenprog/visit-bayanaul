@@ -30,7 +30,6 @@ public class AboutScreen extends NgpScreen {
     public void refreshText() {
         title.setText(Text.about_title.get(app.language));
         text.setText(Text.about_text.get(app.language));
-        text.setBounds(0.1f * Gdx.graphics.getWidth(), 120, 0.8f * Gdx.graphics.getWidth(), 1400);
     }
 
     protected void initUI() {
@@ -88,7 +87,7 @@ public class AboutScreen extends NgpScreen {
         int size = Style.dims.get(BOXHEIGHT,0);
         title.setBounds(wideSpace,height-space-size,width-2*wideSpace-space-size, size);
         backBn.setBounds(space,space,size,size);
-        text.setBounds(wideSpace, wideSpace, width-wideSpace*2, height - space*2 -size -wideSpace);
+        text.setBounds(wideSpace, wideSpace, width-wideSpace*2, height -size -wideSpace*5);
         navBn.setBounds(width - (space+size), height - (space+size), size, size);
         webBn.setBounds(width - (space+size), height - 2*(space+size), size, size);
     }
