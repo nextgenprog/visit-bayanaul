@@ -66,11 +66,13 @@ public class MainScreen extends NgpScreen {
                 xAct = (xPos > 0 || xPos < (Gdx.graphics.getWidth()-7072))? 0 : xAct;
                 yAct = (yPos > 0 || yPos < (Gdx.graphics.getHeight()-3772))? 0 : yAct;
                 mapGrp.moveBy(xAct,yAct);
+                app.x+=xAct;
+                app.y+=yAct;
             }
         };
         mapGrp.addListener(mapDrag);
         stage.addActor(mapGrp);
-        mapGrp.setPosition(-3300, -650);
+        mapGrp.setPosition(app.x, app.y);
         stage.addActor(title);
         stage.addActor(aboutBn);
         stage.addActor(languages);

@@ -13,6 +13,7 @@ public class TourApp extends ApplicationAdapter {
 	private AssetManager assets;
 	public int language;
 	public IntMap<TextureRegionDrawable> langBns = new IntMap<>();
+	public int x = -3300, y = -650;
 
 	@Override
 	public void create() {
@@ -37,7 +38,13 @@ public class TourApp extends ApplicationAdapter {
 	}
 
 	public void setScreen(NgpScreen newScreen){
-		if (newScreen!=this.oldScreen&&null!=this.oldScreen) oldScreen.dispose();
+		if (newScreen==this.oldScreen) {
+			NgpScreen tempScreen = oldScreen;
+			oldScreen = screen;
+			screen = tempScreen;
+			return;
+		}
+		else if (null!=this.oldScreen) oldScreen.dispose();
 		if (null!=this.screen) oldScreen = this.screen;
 		screen = newScreen;
 		screen.refreshText();

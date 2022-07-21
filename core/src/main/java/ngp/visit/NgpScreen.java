@@ -27,7 +27,7 @@ public abstract class NgpScreen implements Screen {
         kz = new Button(app.langBns.get(Style.KAZAKH));
         ru = new Button(app.langBns.get(Style.RUSSIAN));
 
-        selector = new NgpActor(Color.DARK_GRAY,148,84);
+        selector = new NgpActor(Color.DARK_GRAY,144,80);
 
         en.addListener(new ClickListener(){@Override public void clicked(InputEvent event, float x, float y) {
             super.clicked(event, x, y);
@@ -49,8 +49,8 @@ public abstract class NgpScreen implements Screen {
         languages.addActor(en);
         languages.addActor(kz);
         languages.addActor(ru);
-        en.setPosition(10,10);kz.setPosition(170,10);ru.setPosition(330,10);
-        languages.setPosition(Gdx.graphics.getWidth()-Style.dims.get(SPACING,0)-468, Style.dims.get(SPACING,0));
+        en.setPosition(8,8);kz.setPosition(168,8);ru.setPosition(328,8);
+        languages.setPosition(Gdx.graphics.getWidth()-Style.dims.get(SPACING,0)-460, Style.dims.get(SPACING,0));
         initUI();
         stage.addActor(languages);
         resize(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
