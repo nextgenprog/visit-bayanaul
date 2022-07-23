@@ -1,7 +1,10 @@
 package ngp.visit;
 
-import static ngp.visit.Style.BOXHEIGHT;
-import static ngp.visit.Style.SPACING;
+import static ngp.visit.Style.ENGLISH;
+import static ngp.visit.Style.ICON;
+import static ngp.visit.Style.KAZAKH;
+import static ngp.visit.Style.RUSSIAN;
+import static ngp.visit.Style.SPACE;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
@@ -23,38 +26,53 @@ public abstract class NgpScreen implements Screen {
     protected NgpScreen(TourApp app) {
         this.app = app;
 
-        en = new Button(app.langBns.get(Style.ENGLISH));
-        kz = new Button(app.langBns.get(Style.KAZAKH));
-        ru = new Button(app.langBns.get(Style.RUSSIAN));
+        int flagH = Style.dims.get(ICON,0);
+        int space = Style.dims.get(SPACE,0);
+        int selec = space/4;
 
-        selector = new NgpActor(Color.DARK_GRAY,144,80);
-
-        en.addListener(new ClickListener(){@Override public void clicked(InputEvent event, float x, float y) {
-            super.clicked(event, x, y);
-            if (app.language != Style.ENGLISH) {app.setLanguage(Style.ENGLISH); selector.setPosition(0,0);}
-        }
-        });
-        kz.addListener(new ClickListener(){@Override public void clicked(InputEvent event, float x, float y) {
-            super.clicked(event, x, y);
-            if (app.language != Style.KAZAKH) {app.setLanguage(Style.KAZAKH); selector.setPosition(160,0);}
-        }
-        });
-        ru.addListener(new ClickListener(){@Override public void clicked(InputEvent event, float x, float y) {
-            super.clicked(event, x, y);
-            if (app.language != Style.RUSSIAN) {app.setLanguage(Style.RUSSIAN); selector.setPosition(320,0);}
-        }
-        });
+        en = new Button(Style.buttons.get(ENGLISH));
+        kz = new Button(Style.buttons.get(KAZAKH));
+        ru = new Button(Style.buttons.get(RUSSIAN));
+        selector = new NgpActor(Color.DARK_GRAY,2*(flagH+selec),2*selec+flagH);
         languages.addActor(selector);
-        selector.setPosition(app.language*160,0);
         languages.addActor(en);
         languages.addActor(kz);
         languages.addActor(ru);
-        en.setPosition(8,8);kz.setPosition(168,8);ru.setPosition(328,8);
-        languages.setPosition(Gdx.graphics.getWidth()-Style.dims.get(SPACING,0)-460, Style.dims.get(SPACING,0));
+        en.setBounds(0,0,2*flagH,flagH);
+        kz.setBounds(2*flagH+space,0,2*flagH,flagH);
+        ru.setBounds(4*flagH+2*space,0,2*flagH,flagH);
+
+        en.addListener(new ClickListener(){
+            @Override public void clicked(InputEvent event, float x, float y) {
+            super.clicked(event, x, y); setLanguage(ENGLISH);
+        }
+        });
+        kz.addListener(new ClickListener(){
+            @Override public void clicked(InputEvent event, float x, float y) {
+            super.clicked(event, x, y); setLanguage(KAZAKH);
+        }
+        });
+        ru.addListener(new ClickListener(){
+            @Override public void clicked(InputEvent event, float x, float y) {
+            super.clicked(event, x, y); setLanguage(RUSSIAN);
+        }
+        });
+        selector.setPosition(app.language*(2*flagH+space)-selec,-selec);
+        languages.setPosition(Gdx.graphics.getWidth()-6*flagH-3*space-selec, space + selec);
         initUI();
         stage.addActor(languages);
         resize(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
         Gdx.input.setInputProcessor(stage);
+    }
+
+    protected void setLanguage(int langCode){
+        if (app.language != langCode) {
+            int flagH = Style.dims.get(ICON,0);
+            int space = Style.dims.get(SPACE,0);
+            int selec = space/4;
+            app.setLanguage(langCode);
+            selector.setPosition(langCode*(2*flagH+space)-selec,-selec);
+        }
     }
 
     protected abstract void initUI();
@@ -62,9 +80,7 @@ public abstract class NgpScreen implements Screen {
     public abstract void refreshText();
 
     @Override
-    public void show() {
-
-    }
+    public void show() {}
 
     @Override
     public void render(float delta) {
@@ -75,27 +91,17 @@ public abstract class NgpScreen implements Screen {
     }
 
     @Override
-    public void resize(int width, int height) {
-
-    }
+    public void resize(int width, int height) {}
 
     @Override
-    public void pause() {
-
-    }
+    public void pause() {}
 
     @Override
-    public void resume() {
-
-    }
+    public void resume() {}
 
     @Override
-    public void hide() {
-
-    }
+    public void hide() {}
 
     @Override
-    public void dispose() {
-
-    }
+    public void dispose() {}
 }

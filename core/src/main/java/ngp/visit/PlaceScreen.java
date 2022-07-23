@@ -1,12 +1,14 @@
 package ngp.visit;
 
-import static ngp.visit.Style.BOXHEIGHT;
-import static ngp.visit.Style.PHOTOHEIGHT;
-import static ngp.visit.Style.SPACING;
-import static ngp.visit.Style.WIDESPACE;
+import static ngp.visit.Style.BACK;
+import static ngp.visit.Style.BOX_H;
+import static ngp.visit.Style.GMAP;
+import static ngp.visit.Style.PHOTO_H;
+import static ngp.visit.Style.SPACE;
+import static ngp.visit.Style.TITLE_W;
+import static ngp.visit.Style.WIDE_S;
 
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.scenes.scene2d.Group;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
@@ -44,8 +46,8 @@ public class PlaceScreen extends NgpScreen {
         PadActor background = new PadActor();
         imageStrip.addActor(background);
         Array<Image> images = new Array<>();
-        int photoH = Style.dims.get(PHOTOHEIGHT,0);
-        int wideSpace = Style.dims.get(SPACING,0);
+        int photoH = Style.dims.get(PHOTO_H,0);
+        int wideSpace = Style.dims.get(SPACE,0);
         width += wideSpace;
         for (int x = 1; x < 100; x++){
             Image img = null;
@@ -78,7 +80,6 @@ public class PlaceScreen extends NgpScreen {
                 width += photoH*2+wideSpace;
             }
         }
-        stage.addActor(imageStrip);
         DragListener mapDrag = new DragListener() {
             @Override
             public void touchDragged(InputEvent event, float x, float y, int pointer) {
@@ -89,13 +90,14 @@ public class PlaceScreen extends NgpScreen {
             }
         };
         imageStrip.addListener(mapDrag);
+        stage.addActor(imageStrip);
         stage.addActor(title);
         stage.addActor(backBn);
         stage.addActor(navBn);
         background.setBounds(0,0,width,photoH + 4*wideSpace);
         resize(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
         refreshText();
-        imageStrip.setPosition(0, Gdx.graphics.getHeight() - 3*Style.dims.get(WIDESPACE,0)-Style.dims.get(BOXHEIGHT,0)- Style.dims.get(PHOTOHEIGHT,0));stage.addActor(text);
+        imageStrip.setPosition(0, Gdx.graphics.getHeight() - 3*Style.dims.get(WIDE_S,0)-Style.dims.get(BOX_H,0)- Style.dims.get(PHOTO_H,0));stage.addActor(text);
 
     }
 
@@ -106,17 +108,17 @@ public class PlaceScreen extends NgpScreen {
 
     public void initUI() {
         title = new TextButton("", Style.styleTextLarge);
-        text = new Label("", Style.styleLabelLarge);
+        text = new Label("", Style.styleLabel);
         text.setWrap(true);
         text.setAlignment(Align.topLeft);
-        backBn = new Button(new TextureRegionDrawable(new Texture("images/ui/return.png")));
+        backBn = new Button(Style.buttons.get(BACK));
         backBn.addListener(new ClickListener(){
             @Override
             public void clicked(InputEvent event, float x, float y) {
                 app.setScreen(new MainScreen(app));
             }
         });
-        navBn = new Button(new TextureRegionDrawable(new Texture("images/ui/gmap.png")));
+        navBn = new Button(Style.buttons.get(GMAP));
         DragListener textDrag = new DragListener() {
             @Override
             public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
@@ -129,23 +131,22 @@ public class PlaceScreen extends NgpScreen {
                 if (scrollText) {
                     float yAct = Gdx.input.getDeltaY(pointer);
                     float yPos = text.getY() - yAct;
-                    yAct = (yPos < 0 || yPos > (Gdx.graphics.getHeight() + 2400)) ? 0 : yAct;
+                    yAct = (yPos < 0 || yPos > (Gdx.graphics.getHeight() - Style.dims.get(TITLE_W,0))) ? 0 : yAct;
                     text.moveBy(0, -yAct);
                 }
             }
         };
         stage.addListener(textDrag);
         stage.addActor(text);
-//        stage.addActor(imageStrip);
         resize(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
     }
 
     @Override
     public void resize(int width, int height) {
-        int wideSpace = Style.dims.get(WIDESPACE,0);
-        int space = Style.dims.get(SPACING,0);
-        int size = Style.dims.get(BOXHEIGHT,0);
-        int photoHeight = Style.dims.get(PHOTOHEIGHT,0);
+        int wideSpace = Style.dims.get(WIDE_S,0);
+        int space = Style.dims.get(SPACE,0);
+        int size = Style.dims.get(BOX_H,0);
+        int photoHeight = Style.dims.get(PHOTO_H,0);
         title.setBounds(wideSpace,height-space-size,width-2*wideSpace-space-size, size);
         backBn.setBounds(space,space,size,size);
         text.setBounds(wideSpace,0,width-2*wideSpace,height-photoHeight-wideSpace*7-size);
