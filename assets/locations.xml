@@ -2,7 +2,7 @@
 <folder>
 
     <location mapUrl="https://goo.gl/maps/46AanErQnqQ1t7xg7" images="images/locations/akbet/" icon="mount" x="3650" y="2600">
-        <text language="en" name="Akbet Peak">
+        <text language="en" name="Mount Akbet">
             Few people know, but in the Pavlodar region there is a small paradise corner. Bayanaul - four lakes surrounded by rocky mountains and pine forests. Actually there are a lot various outdoor activities. Of the water you will be offered boating, catamarans and inflatable slides. &#xA;&#xA; But of course, Bayanaul is more about mountains and rocks, gorges, forests and flower fields, granite mountains cut by gorges, numerous rocks resemble petrified people, birds, animals, mythical creatures. &#xA;&#xA;And in Bayanaul there is the highest point - Akbet. Its height reaches 1027 meters. The climb up there is long and difficult, but the beauty of the view really opens up on the peak - well worth the exercise. So natural there the sculptor created this beauty. Walking through the mountains and forests, you will certainly meet squirrels who are happy to enjoy the guests. The Bayanaul Territory has a lot of legends that are so loved tell the local seniors. Crystal clear water lakes, mountain peaks and rocks with their history will not leave you indifferent. And what a wonderful air in Bayanaul! Your lungs will thank you for such an abundance of oxygen. Bayanaul - rest for body and soul! Bayanaul is a place which has earned the moniker "Kazakh Switzerland".
         </text>
         <text language="kz" name="Ақбет">
@@ -27,13 +27,13 @@
 
     <location mapUrl="https://goo.gl/maps/YZrCzhZZawjMreRM8" images="images/locations/konyr/" icon="mount" x="2030" y="2000">
         <text language="en" name="Cave Konyr Aulie">
-
+            Konyr Aulie Cave is a sacred place in Mount Akkaragai. A staircase with a length of 1100 meters awaits tourists to the cave. But this cave is really holy. The water in it heals people. It has the ability to cure all kinds of diseases. The magical atmosphere in the cave attracts people to return to it. When you are in the cave, you feel like you find peace. In winter and summer, the water temperature does not change, isn't it a miracle? The view of Bayanaul National Park from Konyr Aulie is impressive. During the day you can see distant mountains and steppe, and at night a beautiful view of the starry sky. The air here makes you breathe deeply. At any time of the year, it would be a good idea to go to the Konyr Aulie cave.
         </text>
-        <text language="kz" name="in kazakh">
-
+        <text language="kz" name="Қоңыр-Әулие">
+            Қоңыр-Әулие үңгірі - Баянауылдың ғажайып, әрі аңызға толы жерлерінің бірі.  Үңгір ішіне шағын қазан орналастырып қайған тәрізді, ішіне жиналған су қараша - наурыз айларында мөлдір су болады екен. Үңгірге көтерілгенде сол жердеге байланысты жазылған аңыз-әңгімелермен танысуға болады. Бұл жерге кірген соң, мистикалық фильм көрінісін ойға алуға болады. Ұзын ағаш жолы, эхомен тастарға түсетін су тамшылары, суық сезілетін үңгірлі жер. Бұның барлығы - Қоңыр-Әулиеде бар.
         </text>
-        <text language="ru" name="in russian">
-
+        <text language="ru" name="Коныр Аулие">
+            Пещера Коныр Аулие находится недалеко от Баянаула Павлодарской области. Пещера расположена посреди большой горы, а поскольку расположена высоко, то надо подниматься по лестнице. Поднявшись, открывается прекрасный вид. Говорят, что внутри пещеры находится святая и конечно же чистая вода. Пещера является популярным местом для туризма. Вы можете сделать фоточки на красивом пейзаже. А ещё по словам смотрителя пещеры, внутри пещеры зимуют бабочки. А когда снег тает и приближается весна, бабочки просыпаются и выходят на свет. Полагаю, стоит посетить волшебное место Қоныр Аулие.
         </text>
     </location>
 

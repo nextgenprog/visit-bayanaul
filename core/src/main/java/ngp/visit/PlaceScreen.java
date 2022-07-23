@@ -72,12 +72,13 @@ public class PlaceScreen extends NgpScreen {
                                 catch(Exception ignored){}}}}}}
 
             if (null!=img) {
-                img.setSize(photoH*2, photoH);
+                int width = (int) (img.getWidth()*photoH/img.getHeight());
+                img.setSize(width, photoH);
                 img.setScaling(Scaling.fill);
                 images.add(img);
                 imageStrip.addActor(images.get(x-1));
-                images.get(x-1).setPosition(width,0);
-                width += photoH*2+wideSpace;
+                images.get(x-1).setPosition(this.width,0);
+                this.width += width+wideSpace;
             }
         }
         DragListener mapDrag = new DragListener() {
@@ -97,7 +98,7 @@ public class PlaceScreen extends NgpScreen {
         background.setBounds(0,0,width,photoH + 4*wideSpace);
         resize(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
         refreshText();
-        imageStrip.setPosition(0, Gdx.graphics.getHeight() - 3*Style.dims.get(WIDE_S,0)-Style.dims.get(BOX_H,0)- Style.dims.get(PHOTO_H,0));stage.addActor(text);
+        imageStrip.setPosition(0, Gdx.graphics.getHeight() - 2*Style.dims.get(SPACE,0)-Style.dims.get(BOX_H,0)- Style.dims.get(PHOTO_H,0));stage.addActor(text);
 
     }
 
@@ -149,7 +150,7 @@ public class PlaceScreen extends NgpScreen {
         int photoHeight = Style.dims.get(PHOTO_H,0);
         title.setBounds(wideSpace,height-space-size,width-2*wideSpace-space-size, size);
         backBn.setBounds(space,space,size,size);
-        text.setBounds(wideSpace,0,width-2*wideSpace,height-photoHeight-wideSpace*7-size);
+        text.setBounds(wideSpace,0,width-2*wideSpace,height-photoHeight-space*3-size);
         navBn.setBounds(width-space-size,height-space-size,size,size);
     }
 

@@ -83,7 +83,7 @@ public class Style {
         dims.put(SPACE, 12*resolution);
         dims.put(BOX_H, 48+12*resolution);
         dims.put(WIDE_S, 12+20*resolution);
-        dims.put(PHOTO_H, 100+100*resolution);
+        dims.put(PHOTO_H, 120+120*resolution);
         dims.put(ICON, 40+6*resolution);
         dims.put(FLAG_H, 24+10*resolution);
         dims.put(TBOX_W, 500+125*resolution);

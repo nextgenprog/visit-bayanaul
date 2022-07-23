@@ -27,8 +27,8 @@ public class MainScreen extends NgpScreen {
     private float cooldown = 1.5f;
     private float travelTime = 0f;
     private float transitionTime = 0f;
-    private Vector2 travelPath = new Vector2();
-    private Vector2 travelSpeed = new Vector2();
+    private final Vector2 travelPath = new Vector2();
+    private final Vector2 travelSpeed = new Vector2();
     private float distanceTraveled = 0f;
     private LocationData nextLoc;
 
@@ -192,6 +192,7 @@ public class MainScreen extends NgpScreen {
     @Override
     public void refreshText() {
         aboutBn.setText(Text.about_button.get(app.language));
+        selectBn.setText(Text.select_button.get(app.language));
     }
 
     @Override
