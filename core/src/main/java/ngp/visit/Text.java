@@ -26,7 +26,7 @@ public class Text {
         about_button.put(Style.RUSSIAN,"(Ru) About");
 
         select_button.put(Style.ENGLISH,"Take me to..");
-        select_button.put(Style.KAZAKH,"(Kz) Slect");
+        select_button.put(Style.KAZAKH,"(Kz) Select");
         select_button.put(Style.RUSSIAN,"(Ru) Select");
 
         about_title.put(Style.ENGLISH,"About This App");

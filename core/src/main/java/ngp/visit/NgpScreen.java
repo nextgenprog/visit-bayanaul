@@ -21,7 +21,7 @@ public abstract class NgpScreen implements Screen {
     protected final Stage stage = new Stage();
     protected final Group languages = new Group();
     protected final Button en, kz, ru;
-    protected final NgpActor selector;
+    protected final NgpActor langSelector;
 
     protected NgpScreen(TourApp app) {
         this.app = app;
@@ -33,8 +33,8 @@ public abstract class NgpScreen implements Screen {
         en = new Button(Style.buttons.get(ENGLISH));
         kz = new Button(Style.buttons.get(KAZAKH));
         ru = new Button(Style.buttons.get(RUSSIAN));
-        selector = new NgpActor(Color.DARK_GRAY,2*(flagH+selec),2*selec+flagH);
-        languages.addActor(selector);
+        langSelector = new NgpActor(Color.DARK_GRAY,2*(flagH+selec),2*selec+flagH);
+        languages.addActor(langSelector);
         languages.addActor(en);
         languages.addActor(kz);
         languages.addActor(ru);
@@ -57,7 +57,7 @@ public abstract class NgpScreen implements Screen {
             super.clicked(event, x, y); setLanguage(RUSSIAN);
         }
         });
-        selector.setPosition(app.language*(2*flagH+space)-selec,-selec);
+        langSelector.setPosition(app.language*(2*flagH+space)-selec,-selec);
         languages.setPosition(Gdx.graphics.getWidth()-6*flagH-3*space-selec, space + selec);
         initUI();
         stage.addActor(languages);
@@ -71,7 +71,7 @@ public abstract class NgpScreen implements Screen {
             int space = Style.dims.get(SPACE,0);
             int selec = space/4;
             app.setLanguage(langCode);
-            selector.setPosition(langCode*(2*flagH+space)-selec,-selec);
+            langSelector.setPosition(langCode*(2*flagH+space)-selec,-selec);
         }
     }
 
@@ -103,5 +103,5 @@ public abstract class NgpScreen implements Screen {
     public void hide() {}
 
     @Override
-    public void dispose() {}
+    public void dispose() {stage.dispose();}
 }

@@ -1,13 +1,26 @@
 package ngp.visit;
 
+import static java.lang.Math.max;
+import static java.lang.Math.min;
 import static ngp.visit.Style.BOX_H;
+import static ngp.visit.Style.DOS;
 import static ngp.visit.Style.FLAG_H;
+import static ngp.visit.Style.GHUB;
+import static ngp.visit.Style.GMAP;
 import static ngp.visit.Style.ICON;
+import static ngp.visit.Style.MAP;
+import static ngp.visit.Style.MAP_L;
+import static ngp.visit.Style.MAP_S;
+import static ngp.visit.Style.NGP;
 import static ngp.visit.Style.SPACE;
 import static ngp.visit.Style.TBOX_W;
 import static ngp.visit.Style.TITLE_W;
+import static ngp.visit.Style.TRES;
+import static ngp.visit.Style.UNO;
+import static ngp.visit.Style.map2;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.math.RandomXS128;
 import com.badlogic.gdx.math.Vector2;
@@ -31,6 +44,12 @@ public class MainScreen extends NgpScreen {
     private final Vector2 travelSpeed = new Vector2();
     private float distanceTraveled = 0f;
     private LocationData nextLoc;
+    private float scale;
+    private int mapW, mapH;
+
+    protected Group mapStyles;
+    protected Button s, m, l;
+    protected NgpActor mapSelector;
 
     public MainScreen(TourApp app) {
         super(app);
@@ -50,16 +69,16 @@ public class MainScreen extends NgpScreen {
         if (!aboutBn.isVisible()) aboutBn.setVisible(!(cooldown>0.5f));
         if (travelTime>0) {
             if (travelPath.len()>travelSpeed.len()) {
-                if (travelSpeed.len() < 25) travelSpeed.scl(1.025f);
+                if (travelSpeed.len() < 18) travelSpeed.scl(1.01f);
             }
             else {
                 travelSpeed.x = travelPath.x; travelSpeed.y = travelPath.y;
                 travelTime = 0;
-                transitionTime = 1.5f;
-                Image target = new Image(Style.target);
+                transitionTime = 1.0f;
+                Image target = new Image(Style.lasso);
                 target.setSize(Style.dims.get(ICON, 0) * 2F, Style.dims.get(ICON, 0) * 2F);
                 mapGrp.addActor(target);
-                target.setPosition(nextLoc.coordinates.x-0.5f*Style.dims.get(ICON, 0),nextLoc.coordinates.y-0.5f*Style.dims.get(ICON, 0));
+                target.setPosition(nextLoc.coordinates.x*scale-0.5f*Style.dims.get(ICON, 0),nextLoc.coordinates.y*scale-0.5f*Style.dims.get(ICON, 0));
             }
             float xAct = travelSpeed.x;
             float yAct = travelSpeed.y;
@@ -67,12 +86,12 @@ public class MainScreen extends NgpScreen {
             distanceTraveled+=travelSpeed.len();
             app.x+=xAct;
             app.y+=yAct;
-            travelPath.x = 0.5f*Gdx.graphics.getWidth()-nextLoc.coordinates.x - mapGrp.getX();
-            travelPath.y = 0.5f*Gdx.graphics.getHeight()-nextLoc.coordinates.y - mapGrp.getY();
+            travelPath.x = 0.5f*Gdx.graphics.getWidth()-nextLoc.coordinates.x*scale - mapGrp.getX();
+            travelPath.y = 0.5f*Gdx.graphics.getHeight()-nextLoc.coordinates.y*scale - mapGrp.getY();
             travelTime-=delta;
-            if (distanceTraveled>25){
+            if (distanceTraveled>50){
                 distanceTraveled = 0;
-                Image trek = new Image(new TextureRegionDrawable(Style.trek));
+                Image trek = new Image(new TextureRegionDrawable(Style.breadcrumb));
                 trek.setSize(Style.dims.get(ICON, 0) * 0.5F, Style.dims.get(ICON, 0) * 0.5F);
                 trek.setRotation(new RandomXS128().nextInt(89));
                 mapGrp.addActor(trek);
@@ -82,6 +101,12 @@ public class MainScreen extends NgpScreen {
     }
 
     public void initUI() {
+        float w = Gdx.graphics.getWidth();
+        float h = Gdx.graphics.getHeight();
+        scale = (app.mapStyle==MAP_S)?(3839f)/(7072f):1;
+        mapW = (app.mapStyle==MAP_S)?3839:7072;
+        mapH = (app.mapStyle==MAP_S)?2048:3772;
+        setUpMapSelector();
         title = new Button(new TextureRegionDrawable(new Texture("images/title.png")));
         aboutBn = new TextButton(Text.about_button.get(app.language), Style.styleTextLargeHL);
         aboutBn.addListener(new ClickListener(){
@@ -106,9 +131,12 @@ public class MainScreen extends NgpScreen {
                 super.clicked(event, x, y);
             }
         });
-        Image map = Style.map;
         mapGrp = new Group();
-        mapGrp.addActor(map);
+        if (app.mapStyle==MAP_L){
+            mapGrp.addActor(Style.map2);
+            map2.setPosition(2976,0);
+        }
+        mapGrp.addActor(Style.map);
         locBns = new Group();
         for (int i = 0; i < Text.locations.size; i++){
             final LocationData loc = Text.locations.get(i);
@@ -120,7 +148,7 @@ public class MainScreen extends NgpScreen {
                 }
             });
             mapGrp.addActor(b);
-            b.setBounds(loc.coordinates.x,loc.coordinates.y,Style.dims.get(ICON,0),Style.dims.get(ICON,0));
+            b.setBounds(loc.coordinates.x*scale,loc.coordinates.y*scale,Style.dims.get(ICON,0),Style.dims.get(ICON,0));
             TextButton dBn = new TextButton(loc.name.get(app.language), Style.styleTextHL);
             dBn.addListener(new ClickListener(){
                 @Override
@@ -129,8 +157,8 @@ public class MainScreen extends NgpScreen {
                     selectBn.setVisible(false);
                     nextLoc = loc;
                     travelTime = 8f;
-                    travelPath.x = 0.5f*Gdx.graphics.getWidth()-nextLoc.coordinates.x - mapGrp.getX();
-                    travelPath.y = 0.5f*Gdx.graphics.getHeight()-nextLoc.coordinates.y - mapGrp.getY();
+                    travelPath.x = 0.5f*Gdx.graphics.getWidth()-nextLoc.coordinates.x*scale - mapGrp.getX();
+                    travelPath.y = 0.5f*Gdx.graphics.getHeight()-nextLoc.coordinates.y*scale - mapGrp.getY();
                     travelSpeed.x = 0.0025f*travelPath.x; travelSpeed.y = 0.0025f*travelPath.y;
                 }
             });
@@ -145,23 +173,71 @@ public class MainScreen extends NgpScreen {
                 float yAct = -Gdx.input.getDeltaY(pointer);
                 float xPos = mapGrp.getX()+xAct;
                 float yPos = mapGrp.getY()+yAct;
-                xAct = (xPos > 0 || xPos < (Gdx.graphics.getWidth()-7072))? 0 : xAct;
-                yAct = (yPos > 0 || yPos < (Gdx.graphics.getHeight()-3772))? 0 : yAct;
+                xAct = (xPos > 0 || xPos < (Gdx.graphics.getWidth()-mapW))? 0 : xAct;
+                yAct = (yPos > 0 || yPos < (Gdx.graphics.getHeight()-mapH))? 0 : yAct;
                 mapGrp.moveBy(xAct,yAct);
-                app.x+=xAct;
-                app.y+=yAct;
+                app.x+=xAct/scale;
+                app.y+=yAct/scale;
             }
         };
         mapGrp.addListener(mapDrag);
         locBns.setVisible(false);
         stage.addActor(mapGrp);
-        mapGrp.setPosition(app.x, app.y);
+        mapGrp.setPosition(min(0,max((app.x)*scale+0.5f*w,Gdx.graphics.getWidth()-mapW)), min(0,max((app.y)*scale+0.5f*h,Gdx.graphics.getHeight()-mapH)));
         stage.addActor(title);
         stage.addActor(aboutBn);
         stage.addActor(selectBn);
         stage.addActor(languages);
+        stage.addActor(mapStyles);
         stage.addActor(locBns);
         refreshText();
+    }
+
+    private void setUpMapSelector() {
+        int flagH = Style.dims.get(ICON,0);
+        int space = Style.dims.get(SPACE,0);
+        int selec = space/4;
+
+        m = new Button(Style.buttons.get(UNO));
+        s = new Button(Style.buttons.get(DOS));
+        l = new Button(Style.buttons.get(TRES));
+        mapStyles = new Group();
+        mapSelector = new NgpActor(Color.DARK_GRAY,2*selec+flagH,2*selec+flagH);
+        mapStyles.addActor(mapSelector);
+        mapStyles.addActor(m);
+        mapStyles.addActor(s);
+        mapStyles.addActor(l);
+        m.setBounds(0,0,flagH,flagH);
+        s.setBounds(flagH+space,0,flagH,flagH);
+        l.setBounds(2*(flagH+space),0,flagH,flagH);
+
+        m.addListener(new ClickListener(){
+            @Override public void clicked(InputEvent event, float x, float y) {
+                super.clicked(event, x, y); setMapStyle(MAP);
+            }
+        });
+        s.addListener(new ClickListener(){
+            @Override public void clicked(InputEvent event, float x, float y) {
+                super.clicked(event, x, y); setMapStyle(MAP_S);
+            }
+        });
+        l.addListener(new ClickListener(){
+            @Override public void clicked(InputEvent event, float x, float y) {
+                super.clicked(event, x, y); setMapStyle(MAP_L);
+            }
+        });
+        mapSelector.setPosition(app.mapStyle*(flagH+space)-selec,-selec);
+        mapStyles.setPosition(Gdx.graphics.getWidth()-3*flagH-3*space-selec, flagH+2*space + 3*selec);
+    }
+
+    protected void setMapStyle(int mapStyle){
+        if (app.mapStyle != mapStyle) {
+            int flagH = Style.dims.get(ICON,0);
+            int space = Style.dims.get(SPACE,0);
+            int selec = space/4;
+            app.setMapStyle(mapStyle);
+            mapSelector.setPosition(mapStyle*(flagH+space)-selec,-selec);
+        }
     }
 
     private void showDropdown() {

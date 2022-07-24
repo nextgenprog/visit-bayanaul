@@ -18,7 +18,6 @@ import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.scenes.scene2d.utils.DragListener;
-import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 import com.badlogic.gdx.utils.Align;
 import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.Scaling;
@@ -99,7 +98,6 @@ public class PlaceScreen extends NgpScreen {
         resize(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
         refreshText();
         imageStrip.setPosition(0, Gdx.graphics.getHeight() - 2*Style.dims.get(SPACE,0)-Style.dims.get(BOX_H,0)- Style.dims.get(PHOTO_H,0));stage.addActor(text);
-
     }
 
     public void refreshText(){
@@ -152,11 +150,6 @@ public class PlaceScreen extends NgpScreen {
         backBn.setBounds(space,space,size,size);
         text.setBounds(wideSpace,0,width-2*wideSpace,height-photoHeight-space*3-size);
         navBn.setBounds(width-space-size,height-space-size,size,size);
-    }
-
-    @Override
-    public void dispose() {
-        stage.dispose();
     }
 
     @Override

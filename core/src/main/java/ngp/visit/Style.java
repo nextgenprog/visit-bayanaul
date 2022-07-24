@@ -21,13 +21,12 @@ import com.badlogic.gdx.utils.Scaling;
 import java.util.HashMap;
 
 public class Style {
-    static Texture mapTex;
-    static Image map;
-    static TextureRegion trek, target;
+    static Texture mapTex, mapTex2;
+    static Image map, map2;
+    static TextureRegion breadcrumb, lasso;
     static BitmapFont font, fontL;
     static TextButton.TextButtonStyle styleText, styleTextLarge, styleTextHL, styleTextLargeHL;
     static Label.LabelStyle styleLabel, styleLabelLarge;
-    static int resolution = 0;
     static final int ENGLISH = 0;
     static final int KAZAKH = 1;
     static final int RUSSIAN = 2;
@@ -44,10 +43,14 @@ public class Style {
         put("home", HOUSE);
     }};
 
-    static final int LOWR = 1;
-    static final int MIDR = 2;
-    static final int HIGR = 3;
-    static final int XHIR = 4;
+    static final int MAP = 0;
+    static final int MAP_S = 1;
+    static final int MAP_L = 2;
+
+    static final int LOW = 1;
+    static final int MID = 2;
+    static final int HI = 3;
+    static final int XHI = 4;
 
     static final IntIntMap dims = new IntIntMap();
     static final int SPACE = 10;
@@ -70,15 +73,35 @@ public class Style {
     static final int WEB = 27;
     static final int GHUB = 28;
     static final int BACK = 29;
+    static final int UNO = 30;
+    static final int DOS = 31;
+    static final int TRES = 32;
+    static final int CUATRO = 33;
 
     // background colour
     static final Color back = new Color(0.85f,0.85f,0.85f,1f);
 
-    static void init(AssetManager assets, int pixelWidth){
-        mapTex = new Texture("images/map.jpg");
-        mapTex.setWrap(Texture.TextureWrap.ClampToEdge, Texture.TextureWrap.ClampToEdge);
-        map = new Image(new TextureRegionDrawable(mapTex), Scaling.fill, Align.center);
-        resolution = (pixelWidth>1200)? XHIR: (pixelWidth>1000)? HIGR: (pixelWidth>800)? MIDR : LOWR;
+    static void init(AssetManager assets, int mapStyle, int resolution){
+        switch (mapStyle){
+            case MAP:
+                mapTex = new Texture("images/map.jpg");
+                mapTex.setWrap(Texture.TextureWrap.ClampToEdge, Texture.TextureWrap.ClampToEdge);
+                map = new Image(new TextureRegionDrawable(mapTex), Scaling.fill, Align.center);
+                break;
+            case MAP_S:
+                mapTex = new Texture("images/map_small.jpg");
+                mapTex.setWrap(Texture.TextureWrap.ClampToEdge, Texture.TextureWrap.ClampToEdge);
+                map = new Image(new TextureRegionDrawable(mapTex), Scaling.fill, Align.center);
+                break;
+            case MAP_L:
+                mapTex = new Texture("images/map_big_1.jpg");
+                mapTex.setWrap(Texture.TextureWrap.ClampToEdge, Texture.TextureWrap.ClampToEdge);
+                map = new Image(new TextureRegionDrawable(mapTex), Scaling.fill, Align.center);
+                mapTex2 = new Texture("images/map_big_2.jpg");
+                mapTex2.setWrap(Texture.TextureWrap.ClampToEdge, Texture.TextureWrap.ClampToEdge);
+                map2 = new Image(new TextureRegionDrawable(mapTex2), Scaling.fill, Align.center);
+                break;
+        }
 
         dims.put(SPACE, 12*resolution);
         dims.put(BOX_H, 48+12*resolution);
@@ -146,6 +169,10 @@ public class Style {
         TextureRegionDrawable en = new TextureRegionDrawable( new TextureRegion(assets.get(uiFile,Texture.class),384,0,128,64));
         TextureRegionDrawable kz = new TextureRegionDrawable( new TextureRegion(assets.get(uiFile,Texture.class),384,64,128,64));
         TextureRegionDrawable ru = new TextureRegionDrawable( new TextureRegion(assets.get(uiFile,Texture.class),384,128,128,64));
+        TextureRegionDrawable uno = new TextureRegionDrawable( new TextureRegion(assets.get(uiFile,Texture.class),256,384,64,64));
+        TextureRegionDrawable dos = new TextureRegionDrawable( new TextureRegion(assets.get(uiFile,Texture.class),320,384,64,64));
+        TextureRegionDrawable tres = new TextureRegionDrawable( new TextureRegion(assets.get(uiFile,Texture.class),256,448,64,64));
+        TextureRegionDrawable cuatro = new TextureRegionDrawable( new TextureRegion(assets.get(uiFile,Texture.class),320,448,64,64));
 
         buttons.put(SWIMR,new Button.ButtonStyle(swimr, swimr, swimr));
         buttons.put(MOUNT,new Button.ButtonStyle(mount, mount, mount));
@@ -160,8 +187,12 @@ public class Style {
         buttons.put(ENGLISH,new Button.ButtonStyle(en, en, en));
         buttons.put(KAZAKH,new Button.ButtonStyle(kz, kz, kz));
         buttons.put(RUSSIAN,new Button.ButtonStyle(ru, ru, ru));
+        buttons.put(UNO,new Button.ButtonStyle(uno, uno, uno));
+        buttons.put(DOS,new Button.ButtonStyle(dos, dos, dos));
+        buttons.put(TRES,new Button.ButtonStyle(tres, tres, tres));
+        buttons.put(CUATRO,new Button.ButtonStyle(cuatro, cuatro, cuatro));
 
-        trek = new TextureRegion(assets.get(uiFile,Texture.class),384,192,32,32);
-        target = new TextureRegion(assets.get(uiFile,Texture.class),128,384,128,128);
+        breadcrumb = new TextureRegion(assets.get(uiFile,Texture.class),384,192,32,32);
+        lasso = new TextureRegion(assets.get(uiFile,Texture.class),128,384,128,128);
     }
 }
