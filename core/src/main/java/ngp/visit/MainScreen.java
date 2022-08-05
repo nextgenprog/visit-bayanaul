@@ -4,14 +4,10 @@ import static java.lang.Math.max;
 import static java.lang.Math.min;
 import static ngp.visit.Style.BOX_H;
 import static ngp.visit.Style.DOS;
-import static ngp.visit.Style.FLAG_H;
-import static ngp.visit.Style.GHUB;
-import static ngp.visit.Style.GMAP;
 import static ngp.visit.Style.ICON;
 import static ngp.visit.Style.MAP;
 import static ngp.visit.Style.MAP_L;
 import static ngp.visit.Style.MAP_S;
-import static ngp.visit.Style.NGP;
 import static ngp.visit.Style.SPACE;
 import static ngp.visit.Style.TBOX_W;
 import static ngp.visit.Style.TITLE_W;
@@ -106,7 +102,7 @@ public class MainScreen extends NgpScreen {
         scale = (app.mapStyle==MAP_S)?(3839f)/(7072f):1;
         mapW = (app.mapStyle==MAP_S)?3839:7072;
         mapH = (app.mapStyle==MAP_S)?2048:3772;
-        setUpMapSelector();
+        //setUpMapSelector();
         title = new Button(new TextureRegionDrawable(new Texture("images/title.png")));
         aboutBn = new TextButton(Text.about_button.get(app.language), Style.styleTextLargeHL);
         aboutBn.addListener(new ClickListener(){
@@ -251,9 +247,12 @@ public class MainScreen extends NgpScreen {
         int tboxw = Style.dims.get(TBOX_W,0);
         int titleW = Style.dims.get(TITLE_W,0);
         int titleH = (int)(10*titleW/43f);
+        int flagW = 2*Style.dims.get(ICON,0);
+        int aboutW = width-6*space-3*flagW;
         title.setBounds(0.5f*(width-titleW),height - titleH, titleW, titleH);
         locBns.setPosition(0.5f*(width - tboxw),height - titleH - boxh);
-        aboutBn.setBounds(space, space, width-6*space-6*Style.dims.get(FLAG_H,0), boxh);
+
+        aboutBn.setBounds(space, space, aboutW, boxh);
         selectBn.setBounds(0.5f*(width - tboxw),height - titleH - boxh, tboxw, boxh);
     }
 

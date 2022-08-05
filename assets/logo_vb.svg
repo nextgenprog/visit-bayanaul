@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="512"
+   height="512"
+   viewBox="0 0 135.46666 135.46667"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.1 (c68e22c387, 2021-05-23)"
+   sodipodi:docname="logo_vb.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#505050"
+     bordercolor="#ffffff"
+     borderopacity="1"
+     inkscape:pageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="1"
+     inkscape:document-units="px"
+     showgrid="false"
+     units="px"
+     inkscape:snap-global="false"
+     inkscape:zoom="0.32"
+     inkscape:cx="-123.4375"
+     inkscape:cy="542.1875"
+     inkscape:window-width="1920"
+     inkscape:window-height="1057"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs2">
+    <rect
+       x="-7563.248"
+       y="4228.129"
+       width="3007.0745"
+       height="2296.3115"
+       id="rect10369" />
+    <rect
+       x="-7563.248"
+       y="4228.129"
+       width="3007.0745"
+       height="2296.3115"
+       id="rect15327" />
+    <rect
+       x="-7563.248"
+       y="4228.129"
+       width="3007.0745"
+       height="2296.3115"
+       id="rect23066" />
+    <rect
+       x="-7563.248"
+       y="4228.129"
+       width="3007.0745"
+       height="2296.3115"
+       id="rect23068" />
+    <rect
+       x="-7563.248"
+       y="4228.129"
+       width="3007.0745"
+       height="2296.3115"
+       id="rect29122" />
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <g
+       id="g51386"
+       transform="matrix(0.10219985,0,0,0.10214418,412.00409,-335.55474)">
+      <g
+         id="g23052"
+         transform="translate(-1760.0118,2521.88)">
+        <rect
+           style="fill:#44494d;fill-opacity:1;stroke:#000000;stroke-width:1.05833;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4.72727"
+           id="rect1373"
+           width="1322.9166"
+           height="1322.9166"
+           x="-2270.8162"
+           y="763.75793"
+           rx="119.0625"
+           ry="119.0625" />
+        <path
+           style="fill:#2d2d30;fill-opacity:1;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+           d="m -1948.0678,920.99248 c -264.7374,138.31492 -233.2842,760.03762 -43.3976,949.92422 63.3325,63.3325 341.3934,1.9286 429.1536,14.4658 130.7856,18.6837 275.2256,33.3792 376.1121,-67.5073 170.1177,-170.1177 112.8411,-801.8866 -115.7268,-916.1705 -140.5467,-70.27333 -508.7097,-19.97839 -646.1413,19.28778 z"
+           id="path20854" />
+        <g
+           id="g20819"
+           transform="matrix(1.2498644,0,0,1.5720409,437.32056,-713.49936)">
+          <text
+             xml:space="preserve"
+             transform="matrix(0.26458333,0,0,0.26458333,24.109751,9.6439005)"
+             id="text10367"
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:1600px;line-height:1.25;font-family:'Comic Sans MS';-inkscape-font-specification:'Comic Sans MS, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect10369);fill:#a6abb0;fill-opacity:1;stroke:none"><tspan
+               x="-7563.248"
+               y="5618.3196"
+               id="tspan51686">V B</tspan></text>
+          <text
+             xml:space="preserve"
+             transform="scale(0.26458333)"
+             id="text15325"
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:1600px;line-height:1.25;font-family:'Comic Sans MS';-inkscape-font-specification:'Comic Sans MS, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect15327);fill:#22596e;fill-opacity:1;stroke:none"><tspan
+               x="-7563.248"
+               y="5618.3196"
+               id="tspan51688">  \</tspan></text>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

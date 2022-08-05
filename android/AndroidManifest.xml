@@ -6,9 +6,9 @@
 	<application
 		android:allowBackup="true"
 		android:fullBackupContent="true"
-		android:icon="@mipmap/vb_logo"
-		android:roundIcon="@mipmap/vb_logo_round"
-		android:logo="@mipmap/vb_logo"
+		android:icon="@mipmap/vb_logo_foreground"
+		android:roundIcon="@mipmap/vb_logo_foreground"
+		android:logo="@mipmap/vb_logo_foreground"
 		android:isGame="false"
 		android:appCategory="game"
 		android:label="@string/app_name"

@@ -82,7 +82,7 @@ public class Style {
     static final Color back = new Color(0.85f,0.85f,0.85f,1f);
 
     static void init(AssetManager assets, int mapStyle, int resolution){
-        switch (mapStyle){
+        /*switch (mapStyle){
             case MAP:
                 mapTex = new Texture("images/map.jpg");
                 mapTex.setWrap(Texture.TextureWrap.ClampToEdge, Texture.TextureWrap.ClampToEdge);
@@ -101,7 +101,11 @@ public class Style {
                 mapTex2.setWrap(Texture.TextureWrap.ClampToEdge, Texture.TextureWrap.ClampToEdge);
                 map2 = new Image(new TextureRegionDrawable(mapTex2), Scaling.fill, Align.center);
                 break;
-        }
+        }*/
+
+        mapTex = new Texture("images/map_small.jpg");
+        mapTex.setWrap(Texture.TextureWrap.ClampToEdge, Texture.TextureWrap.ClampToEdge);
+        map = new Image(new TextureRegionDrawable(mapTex), Scaling.fill, Align.center);
 
         dims.put(SPACE, 12*resolution);
         dims.put(BOX_H, 48+12*resolution);
@@ -112,8 +116,8 @@ public class Style {
         dims.put(TBOX_W, 500+125*resolution);
         dims.put(TITLE_W, 400+200*resolution);
 
-        String fontS = "font/font_1_"+(30+6*resolution)+".fnt";
-        String fontL = "font/font_1_"+(50+10*resolution)+".fnt";
+        String fontS = "font/fnt_1_"+(30+6*resolution)+".fnt";
+        String fontL = "font/fnt_1_"+(42+6*resolution)+".fnt";
         String uiFile = "images/atlas.png";
         assets.load(uiFile,Texture.class);
         assets.load(fontS,BitmapFont.class);
