@@ -2,6 +2,7 @@ package ngp.visit;
 
 import static ngp.visit.Style.HI;
 import static ngp.visit.Style.LOW;
+import static ngp.visit.Style.MAP_S;
 import static ngp.visit.Style.MID;
 import static ngp.visit.Style.XHI;
 
@@ -27,7 +28,7 @@ public class TourApp extends ApplicationAdapter {
 		try{
 			prefs = Gdx.app.getPreferences("prefs");
 			language = prefs.getInteger("language",Style.ENGLISH);
-			mapStyle = prefs.getInteger("mapStyle",Style.MAP);
+			mapStyle = MAP_S;//prefs.getInteger("mapStyle",Style.MAP);
 		}
 		catch (Exception ignored) {
 			language = Style.ENGLISH;

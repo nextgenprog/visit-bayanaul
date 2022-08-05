@@ -43,7 +43,7 @@ public class MainScreen extends NgpScreen {
     private float scale;
     private int mapW, mapH;
 
-    protected Group mapStyles;
+    protected Group mapStyles = new Group();
     protected Button s, m, l;
     protected NgpActor mapSelector;
 
@@ -184,7 +184,7 @@ public class MainScreen extends NgpScreen {
         stage.addActor(aboutBn);
         stage.addActor(selectBn);
         stage.addActor(languages);
-        stage.addActor(mapStyles);
+        //stage.addActor(mapStyles);
         stage.addActor(locBns);
         refreshText();
     }
@@ -197,7 +197,6 @@ public class MainScreen extends NgpScreen {
         m = new Button(Style.buttons.get(UNO));
         s = new Button(Style.buttons.get(DOS));
         l = new Button(Style.buttons.get(TRES));
-        mapStyles = new Group();
         mapSelector = new NgpActor(Color.DARK_GRAY,2*selec+flagH,2*selec+flagH);
         mapStyles.addActor(mapSelector);
         mapStyles.addActor(m);
